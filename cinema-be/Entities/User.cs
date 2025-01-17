@@ -10,7 +10,7 @@ namespace cinema_be.Entities
         public string UserName { get; set; }
         [Required, EmailAddress]
         public string Email { get; set; }
-        [Required, MinLength(8), MaxLength(50)]
+        [Required]
         public string PasswordHash { get; set; }
         [Required]
         public bool IsAdmin { get; set; }

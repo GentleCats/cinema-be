@@ -13,9 +13,9 @@ namespace cinema_be.Entities
         [Required]
         public TimeSpan Duration { get; set; }
         [Required, MaxLength(50)]
+        public string Country {  get; set; }
+        [Required, MaxLength(50)]
         public string Genre { get; set; }
-        [Required, MaxLength(20)]
-        public string Type { get; set; }
         [Required, DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
         [Required, DataType(DataType.Date)]

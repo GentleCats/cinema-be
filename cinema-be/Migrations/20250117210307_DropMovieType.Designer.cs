@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cinema_be;
 
@@ -10,9 +11,11 @@ using cinema_be;
 namespace cinema_be.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250117210307_DropMovieType")]
+    partial class DropMovieType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -130,7 +133,7 @@ namespace cinema_be.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("TEXT");
 
-                    b.Property<TimeSpan>("EndTime")
+                    b.Property<DateTime>("EndTime")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("HallId")
@@ -139,7 +142,7 @@ namespace cinema_be.Migrations
                     b.Property<int>("MovieId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<TimeSpan>("StartTime")
+                    b.Property<DateTime>("StartTime")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
