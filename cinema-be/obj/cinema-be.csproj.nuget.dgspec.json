@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Vodnic\\4 курс\\2 семестр\\practice\\cinema-be\\cinema-be\\cinema-be.csproj": {}
+    "D:\\Vodnic\\4 курс\\2 семестр\\practice\\repo\\cinema-be\\cinema-be\\cinema-be.csproj": {}
   },
   "projects": {
-    "D:\\Vodnic\\4 курс\\2 семестр\\practice\\cinema-be\\cinema-be\\cinema-be.csproj": {
+    "D:\\Vodnic\\4 курс\\2 семестр\\practice\\repo\\cinema-be\\cinema-be\\cinema-be.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Vodnic\\4 курс\\2 семестр\\practice\\cinema-be\\cinema-be\\cinema-be.csproj",
+        "projectUniqueName": "D:\\Vodnic\\4 курс\\2 семестр\\practice\\repo\\cinema-be\\cinema-be\\cinema-be.csproj",
         "projectName": "cinema-be",
-        "projectPath": "D:\\Vodnic\\4 курс\\2 семестр\\practice\\cinema-be\\cinema-be\\cinema-be.csproj",
+        "projectPath": "D:\\Vodnic\\4 курс\\2 семестр\\practice\\repo\\cinema-be\\cinema-be\\cinema-be.csproj",
         "packagesPath": "C:\\Users\\Олександра\\.nuget\\packages\\",
-        "outputPath": "D:\\Vodnic\\4 курс\\2 семестр\\practice\\cinema-be\\cinema-be\\obj\\",
+        "outputPath": "D:\\Vodnic\\4 курс\\2 семестр\\practice\\repo\\cinema-be\\cinema-be\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Олександра\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,6 +46,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
