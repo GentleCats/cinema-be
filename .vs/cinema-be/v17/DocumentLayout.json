@@ -3,52 +3,52 @@
   "WorkspaceRootPath": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Migrations\\20250117212027_changedDataTypeSession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:cinema-be\\Migrations\\20250117212027_changedDataTypeSession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\helpers\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\helpers\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\entities\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\entities\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Migrations\\20250117210307_DropMovieType.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:cinema-be\\Migrations\\20250117210307_DropMovieType.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\entities\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Migrations\\20250117205443_AddCountry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:cinema-be\\Migrations\\20250117205443_AddCountry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\configuration\\tmdbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\configuration\\tmdbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\services\\tmdbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\services\\tmdbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\models\\tmdb\\tmdbmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\models\\tmdb\\tmdbmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\entities\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\entities\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\helpers\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\helpers\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\entities\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\entities\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\entities\\hall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,121 +62,113 @@
       "DocumentGroups": [
         {
           "DockedWidth": 799,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20250117212027_changedDataTypeSession.cs",
-              "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Migrations\\20250117212027_changedDataTypeSession.cs",
-              "RelativeDocumentMoniker": "cinema-be\\Migrations\\20250117212027_changedDataTypeSession.cs",
-              "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Migrations\\20250117212027_changedDataTypeSession.cs",
-              "RelativeToolTip": "cinema-be\\Migrations\\20250117212027_changedDataTypeSession.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "TmdbModels.cs",
+              "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Models\\Tmdb\\TmdbModels.cs",
+              "RelativeDocumentMoniker": "cinema-be\\Models\\Tmdb\\TmdbModels.cs",
+              "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Models\\Tmdb\\TmdbModels.cs",
+              "RelativeToolTip": "cinema-be\\Models\\Tmdb\\TmdbModels.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAIwDkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T21:20:27.93Z",
+              "WhenOpened": "2025-01-22T10:18:22.873Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "20250117210307_DropMovieType.cs",
-              "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Migrations\\20250117210307_DropMovieType.cs",
-              "RelativeDocumentMoniker": "cinema-be\\Migrations\\20250117210307_DropMovieType.cs",
-              "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Migrations\\20250117210307_DropMovieType.cs",
-              "RelativeToolTip": "cinema-be\\Migrations\\20250117210307_DropMovieType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "TmdbSettings.cs",
+              "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Configuration\\TmdbSettings.cs",
+              "RelativeDocumentMoniker": "cinema-be\\Configuration\\TmdbSettings.cs",
+              "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Configuration\\TmdbSettings.cs",
+              "RelativeToolTip": "cinema-be\\Configuration\\TmdbSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T21:03:07.33Z",
+              "WhenOpened": "2025-01-22T11:07:19.886Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "20250117205443_AddCountry.cs",
-              "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Migrations\\20250117205443_AddCountry.cs",
-              "RelativeDocumentMoniker": "cinema-be\\Migrations\\20250117205443_AddCountry.cs",
-              "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Migrations\\20250117205443_AddCountry.cs",
-              "RelativeToolTip": "cinema-be\\Migrations\\20250117205443_AddCountry.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-17T20:54:44.136Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "DbInitializer.cs",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Helpers\\DbInitializer.cs",
               "RelativeDocumentMoniker": "cinema-be\\Helpers\\DbInitializer.cs",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Helpers\\DbInitializer.cs",
               "RelativeToolTip": "cinema-be\\Helpers\\DbInitializer.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEoAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T17:59:49.691Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Program.cs",
               "RelativeDocumentMoniker": "cinema-be\\Program.cs",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Program.cs",
               "RelativeToolTip": "cinema-be\\Program.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAUwBQAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T19:52:11.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\User.cs",
               "RelativeDocumentMoniker": "cinema-be\\Entities\\User.cs",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\User.cs",
               "RelativeToolTip": "cinema-be\\Entities\\User.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAcwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T20:20:40.846Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "Ticket.cs",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\Ticket.cs",
               "RelativeDocumentMoniker": "cinema-be\\Entities\\Ticket.cs",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\Ticket.cs",
               "RelativeToolTip": "cinema-be\\Entities\\Ticket.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAiwBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T20:19:32.449Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Movie.cs",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\Movie.cs",
               "RelativeDocumentMoniker": "cinema-be\\Entities\\Movie.cs",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\Movie.cs",
               "RelativeToolTip": "cinema-be\\Entities\\Movie.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA5wBEAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAkwBgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T20:19:21.838Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\AppDbContext.cs",
               "RelativeDocumentMoniker": "cinema-be\\AppDbContext.cs",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\AppDbContext.cs",
               "RelativeToolTip": "cinema-be\\AppDbContext.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAcwBQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T19:50:46.991Z",
               "EditorCaption": ""
@@ -189,48 +181,61 @@
               "RelativeDocumentMoniker": "cinema-be\\Entities\\Hall.cs",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\Hall.cs",
               "RelativeToolTip": "cinema-be\\Entities\\Hall.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAcwBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T20:19:57.543Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\appsettings.json",
               "RelativeDocumentMoniker": "cinema-be\\appsettings.json",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\appsettings.json",
               "RelativeToolTip": "cinema-be\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-01-16T19:55:09.214Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Booking.cs",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\Booking.cs",
               "RelativeDocumentMoniker": "cinema-be\\Entities\\Booking.cs",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\Booking.cs",
               "RelativeToolTip": "cinema-be\\Entities\\Booking.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAcwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T20:20:27.292Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Session.cs",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\Session.cs",
               "RelativeDocumentMoniker": "cinema-be\\Entities\\Session.cs",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Entities\\Session.cs",
               "RelativeToolTip": "cinema-be\\Entities\\Session.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAcwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-16T20:19:47.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TmdbService.cs",
+              "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Services\\TmdbService.cs",
+              "RelativeDocumentMoniker": "cinema-be\\Services\\TmdbService.cs",
+              "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\cinema-be\\cinema-be\\Services\\TmdbService.cs",
+              "RelativeToolTip": "cinema-be\\Services\\TmdbService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-22T10:01:16.073Z",
               "EditorCaption": ""
             }
           ]

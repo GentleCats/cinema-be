@@ -5,61 +5,26 @@ namespace cinema_be.Helpers
 {
     public static class DbInitializer
     {
-        public static void SeedMovie(this ModelBuilder modelBuilder)
+        public static async Task SeedMovie(AppDbContext context, TmdbService tmdbService)
         {
-            modelBuilder.Entity<Movie>().HasData(
-                new Movie[]
+            var movies = await tmdbService.GetPopularMoviesAsync();
+
+            if (movies == null || !movies.Any()) 
+            {
+                Console.WriteLine("No movies to seed.");
+                return;
+            }
+
+            foreach (var movie in movies)
+            {
+                if (!context.Movies.Any(m => m.Title == movie.Title)) 
                 {
-                    new Movie()
-                    {
-                        Id = 1,
-                        Title = "Вовкулака",
-                        Description = "Нова моторошна історія від Blumhouse та режисера-візіонера Лі Воннелла, творців культового трилера «Людина-Невидимка»! Номінант на премію «Золотий глобус» Крістофер Ебботт у ролі Блейка — чоловіка та батька з Сан-Франциско, який успадковує віддалений будинок у сільській місцевості Орегону після таємничого зникнення батька. Оскільки його шлюб знаходиться на межі краху, він переконує дружину разом з донькою відвідати заміський маєток, аби відпочити від метушні міста. Проте спокій не триває довго: після приїзду на родину нападає невидима тварина, змушуючи їх замкнутися у будинку. Із настанням ночі Блейк починає дивно поводитись, перетворюючись на щось невпізнане. Тож його дружині доведеться обирати, чи істота у їхньому домі є більш небезпечною, ніж та, що поза ним.",
-                        Duration = new TimeSpan(1, 47, 0),
-                        Country = "США",
-                        Genre = "хорор",
-                        ReleaseDate = new DateTime(2025, 1, 16),
-                        EndDate = new DateTime(2025, 1, 29),
-                        Director = "Лі Воннелл",
-                        Cast = "Крістофер Еббот, Джулія Гарнер та ін.",
-                        Rating = 0,
-                        TrailerUrl = "https://youtu.be/yr1lPCq3Pek?si=3beHyfKW47vuW-tI",
-                        ImageUrl = "https://kino.rv.ua/cover/7nhhk6pio60jdntlmojm.jpg",
-                    },
-                    new Movie()
-                    {
-                        Id = 2,
-                        Title = "Пригоди Паддінгтона в Перу",
-                        Description = "У продовженні історії Паддінгтон разом із сімейством Браун вирушить до Перу, щоб відвідати свою тітку Люсі. Однак їхня подорож не буде звичайною, оскільки загадкові події змусять їх пройти через небезпечні амазонські джунглі та підкорити вершини перуанських гір. На героїв, без сумніву, чекає ще більше захопливих пригод та сміху.",
-                        Duration = new TimeSpan(1, 46, 0),
-                        Genre = "пригоди, комедія",
-                        Country = "Велика Британія, Франція, Японія, США",
-                        ReleaseDate = new DateTime(2025, 1, 16),
-                        EndDate = new DateTime(2025, 2, 5),
-                        Director = "Девід Хейман",
-                        Cast = "Хью Бонневіль, Джулі Уолтерс, Олівія Колман, Антоніо Бандерас, Мадлен Харріс, Самюель Джонсон та ін.",
-                        Rating = 4,
-                        TrailerUrl = "https://youtu.be/0KNaGs2Saeo?si=EckTdjLDtfUTWJI6",
-                        ImageUrl = "https://kino.rv.ua/cover/ovj1s4ehkz10ihiusg4q.jpg",
-                    },
-                    new Movie()
-                    {
-                        Id = 3,
-                        Title = "Злодії 2: Пантера",
-                        Description = "Події фільму «Злодії 2: Пантера» відбуваються в Європі. Викрадачі діамантів замислюють неймовірно зухвале пограбування. Їх плани може зіпсувати лише шериф «Великий Нік” О'Брайен. Його напружене протистояння загрозливій банді майстерних злочинців на чолі з Донні Вілсоном триває ще з першого фільму. Та чи буде зведений рахунок цього разу? Коли на кону не лише репутація (престиж), а й мільйони…",
-                        Duration = new TimeSpan(2, 0, 0),
-                        Genre = "бойовик, трилер, драма, кримінал",
-                        Country = "США, Канада, Іспанія",
-                        ReleaseDate = new DateTime(2025, 1, 9),
-                        EndDate = new DateTime(2025, 1, 22),
-                        Director = "Крістіан Будеґаст",
-                        Cast = "Джерард Батлер, О’Ши Джексон-мол., Евін Ахмад, Сальваторе Еспозіто, Ріко Вергувен, Свен Теммел та ін.",
-                        Rating = 4,
-                        TrailerUrl = "https://youtu.be/JXIk6zuSfoU?si=2YVIuJhavxw76rKo",
-                        ImageUrl = "https://kino.rv.ua/cover/88lgdn6xvjvujvdac2iw.jpg",
-                    },
+                    context.Movies.Add(movie);
                 }
-                );
+            }
+
+            await context.SaveChangesAsync();
+
         }
         public static void SeedSession(this ModelBuilder modelBuilder)
         {
@@ -285,7 +250,7 @@ namespace cinema_be.Helpers
                     },
                     new User()
                     {
-                        Id= 5,
+                        Id= 6,
                         UserName ="Admin",
                         Email = "admin@gmail.com",
                         PasswordHash= "psw!admin",
@@ -320,4 +285,5 @@ namespace cinema_be.Helpers
                 });
         }
     }
+
 }

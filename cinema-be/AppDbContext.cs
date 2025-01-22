@@ -1,4 +1,5 @@
 ﻿using cinema_be.Entities;
+using cinema_be.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema_be
@@ -14,7 +15,19 @@ namespace cinema_be
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<User> Users { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            DbInitializer.SeedHall(modelBuilder);
+            DbInitializer.SeedSession(modelBuilder);
+            DbInitializer.SeedBooking(modelBuilder);
+            DbInitializer.SeedUser(modelBuilder);
+            DbInitializer.SeedTicket(modelBuilder);
+        }
+
 
 
     }
+
 }
