@@ -1,0 +1,10 @@
+@cinema_be_HostAddress = http://localhost:7046
+POST {{cinema_be_HostAddress}}/account/login/
+
+{
+    "username": "testUser",
+    "password": "testPassword",
+    "rememberMe": true
+}
+
+

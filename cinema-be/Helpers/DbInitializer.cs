@@ -24,8 +24,8 @@ namespace cinema_be.Helpers
             }
 
             await context.SaveChangesAsync();
-
         }
+
         public static void SeedSession(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Session>().HasData(
@@ -38,8 +38,7 @@ namespace cinema_be.Helpers
                         HallId = 1,
                         StartTime = new TimeSpan(19, 55, 0),
                         EndTime = new TimeSpan(21, 45, 0),
-                        Date = new DateTime(2025, 1, 18),
-
+                        Date = new DateTime(2025, 1, 18),  
                     },
                     new Session()
                     {
@@ -48,8 +47,7 @@ namespace cinema_be.Helpers
                         HallId = 1,
                         StartTime = new TimeSpan(19, 55, 0),
                         EndTime = new TimeSpan(21, 45, 0),
-                        Date = new DateTime(2025, 1, 19),
-
+                        Date = new DateTime(2025, 1, 19),  
                     },
                     new Session()
                     {
@@ -58,8 +56,7 @@ namespace cinema_be.Helpers
                         HallId = 1,
                         StartTime = new TimeSpan(19, 55, 0),
                         EndTime = new TimeSpan(21, 45, 0),
-                        Date = new DateTime(2025, 1, 20),
-
+                        Date = new DateTime(2025, 1, 20),  
                     },
                     new Session()
                     {
@@ -68,8 +65,7 @@ namespace cinema_be.Helpers
                         HallId = 2,
                         StartTime = new TimeSpan(10, 10, 0),
                         EndTime = new TimeSpan(12, 00, 0),
-                        Date = new DateTime(2025, 1, 18),
-
+                        Date = new DateTime(2025, 1, 18),  
                     },
                     new Session()
                     {
@@ -78,8 +74,7 @@ namespace cinema_be.Helpers
                         HallId = 2,
                         StartTime = new TimeSpan(16, 20, 0),
                         EndTime = new TimeSpan(18, 10, 0),
-                        Date = new DateTime(2025, 1, 18),
-
+                        Date = new DateTime(2025, 1, 18),  
                     },
                     new Session()
                     {
@@ -88,8 +83,7 @@ namespace cinema_be.Helpers
                         HallId = 2,
                         StartTime = new TimeSpan(10, 10, 0),
                         EndTime = new TimeSpan(12, 00, 0),
-                        Date = new DateTime(2025, 1, 19),
-
+                        Date = new DateTime(2025, 1, 19),  
                     },
                     new Session()
                     {
@@ -98,8 +92,7 @@ namespace cinema_be.Helpers
                         HallId = 2,
                         StartTime = new TimeSpan(16, 20, 0),
                         EndTime = new TimeSpan(18, 10, 0),
-                        Date = new DateTime(2025, 1, 19),
-
+                        Date = new DateTime(2025, 1, 19),  
                     },
                     new Session()
                     {
@@ -108,8 +101,7 @@ namespace cinema_be.Helpers
                         HallId = 3,
                         StartTime = new TimeSpan(20, 10, 0),
                         EndTime = new TimeSpan(22, 10, 0),
-                        Date = new DateTime(2025, 1, 18),
-
+                        Date = new DateTime(2025, 1, 18),  
                     },
                     new Session()
                     {
@@ -118,12 +110,12 @@ namespace cinema_be.Helpers
                         HallId = 3,
                         StartTime = new TimeSpan(20, 10, 0),
                         EndTime = new TimeSpan(22, 10, 0),
-                        Date = new DateTime(2025, 1, 19),
-
+                        Date = new DateTime(2025, 1, 19),  
                     },
                 }
-                );
+            );
         }
+
         public static void SeedHall(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Hall>().HasData(
@@ -132,20 +124,21 @@ namespace cinema_be.Helpers
                     new Hall(){
                         Id = 1,
                         Name="Альфа",
-                        Сapacity = 302
+                        Capacity = 302
                     },
                     new Hall(){
                         Id = 2,
                         Name="Парадиз",
-                        Сapacity = 377
+                        Capacity = 377
                     },
                     new Hall(){
                         Id = 3,
                         Name="Арена",
-                        Сapacity = 346
+                        Capacity = 346
                     },
                 });
         }
+
         public static void SeedBooking(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Booking>().HasData(
@@ -157,7 +150,6 @@ namespace cinema_be.Helpers
                         BookingTime= new DateTime(2025,1,17),
                         SessionId = 1,
                         UserId=1,
-
                     },
                     new Booking()
                     {
@@ -165,7 +157,6 @@ namespace cinema_be.Helpers
                         BookingTime= new DateTime(2025,1,14),
                         SessionId = 8,
                         UserId=2,
-
                     },
                     new Booking()
                     {
@@ -173,7 +164,6 @@ namespace cinema_be.Helpers
                         BookingTime= new DateTime(2025,1,15),
                         SessionId = 4,
                         UserId=3,
-
                     },
                     new Booking()
                     {
@@ -181,7 +171,6 @@ namespace cinema_be.Helpers
                         BookingTime= new DateTime(2025,1,17),
                         SessionId = 3,
                         UserId=3,
-
                     },
                     new Booking()
                     {
@@ -189,7 +178,6 @@ namespace cinema_be.Helpers
                         BookingTime= new DateTime(2025,1,12),
                         SessionId = 2,
                         UserId=4,
-
                     },
                     new Booking()
                     {
@@ -197,13 +185,11 @@ namespace cinema_be.Helpers
                         BookingTime= new DateTime(2025,1,10),
                         SessionId = 4,
                         UserId=4,
-
                     },
-
                 }
             );
-
         }
+
         public static void SeedUser(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().HasData(
@@ -214,52 +200,41 @@ namespace cinema_be.Helpers
                         Id= 1,
                         UserName ="Sasha Osadets",
                         Email = "osadets@gmail.com",
-                        PasswordHash= "Qwerty!",
-                        IsAdmin = false
                     },
                     new User()
                     {
                         Id= 2,
                         UserName ="Fedor",
                         Email = "fedor@gmail.com",
-                        PasswordHash= "Qwerty!",
-                        IsAdmin = false
                     },
                     new User()
                     {
                         Id= 3,
                         UserName ="Maksym Banatskyi",
                         Email = "Maksym@gmail.com",
-                        PasswordHash= "Qwerty!",
-                        IsAdmin = false
                     },
                     new User()
                     {
                         Id= 4,
                         UserName ="Maksym Lazarchuk",
                         Email = "MaksymL@gmail.com",
-                        PasswordHash= "Qwerty!",
-                        IsAdmin = false
                     },
                     new User()
                     {
                         Id= 5,
                         UserName ="Volodymyr Yakovchuk",
                         Email = "Volodymyr@gmail.com",
-                        PasswordHash= "Qwerty!",
-                        IsAdmin = false
                     },
                     new User()
                     {
                         Id= 6,
                         UserName ="Admin",
                         Email = "admin@gmail.com",
-                        PasswordHash= "psw!admin",
-                        IsAdmin = true
                     },
                 }
             );
         }
+
         public static void SeedTicket(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Ticket>().HasData(

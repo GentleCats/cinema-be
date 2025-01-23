@@ -1,0 +1,12 @@
+@cinema_be_HostAddress = https://localhost:7046
+
+POST {{cinema_be_HostAddress}}/api/account/register/
+Content-Type: application/json
+
+{
+    "username": "testUser",
+    "password": "testPassword123!",
+    "email": "testEmail@gmail.com"
+}
+
+

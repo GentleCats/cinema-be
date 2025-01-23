@@ -1,10 +1,13 @@
 ﻿using cinema_be.Entities;
 using cinema_be.Helpers;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema_be
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User, Role, int>
+
     {
         public AppDbContext() : base() { }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
@@ -13,19 +16,18 @@ namespace cinema_be
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Session> Sessions { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
-        public DbSet<User> Users { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            /*DbInitializer.SeedUser(modelBuilder);
             DbInitializer.SeedHall(modelBuilder);
             DbInitializer.SeedSession(modelBuilder);
             DbInitializer.SeedBooking(modelBuilder);
-            DbInitializer.SeedUser(modelBuilder);
-            DbInitializer.SeedTicket(modelBuilder);
+            DbInitializer.SeedTicket(modelBuilder);*/
         }
-
 
 
     }
