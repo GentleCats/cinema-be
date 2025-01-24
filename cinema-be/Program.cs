@@ -1,7 +1,8 @@
 
-
 using cinema_be.Configuration;
+using cinema_be.Entities;
 using cinema_be.Helpers;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace cinema_be
@@ -17,6 +18,11 @@ namespace cinema_be
             {
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDB"));
             });
+
+            // Налаштування Identity
+            builder.Services.AddIdentity<User, Role>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
 
             builder.Services.AddControllers();
             builder.Services.AddHttpClient<TmdbService>();
@@ -51,6 +57,8 @@ namespace cinema_be
             }
 
             app.UseHttpsRedirection();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

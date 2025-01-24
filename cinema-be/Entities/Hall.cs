@@ -11,7 +11,7 @@ namespace cinema_be.Entities
         public string Name { get; set; }
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Capacity must be greater than 0")]
-        public int Сapacity { get; set; }
+        public int Capacity { get; set; }
         public ICollection<Session> Sessions { get; set; }
         public ICollection<Ticket> Tickets { get; set; }
     }

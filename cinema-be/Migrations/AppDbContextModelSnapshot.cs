@@ -17,6 +17,105 @@ namespace cinema_be.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
             modelBuilder.Entity("cinema_be.Entities.Booking", b =>
                 {
                     b.Property<int>("Id")
@@ -39,50 +138,6 @@ namespace cinema_be.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Bookings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BookingTime = new DateTime(2025, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SessionId = 1,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BookingTime = new DateTime(2025, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SessionId = 8,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BookingTime = new DateTime(2025, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SessionId = 4,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BookingTime = new DateTime(2025, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SessionId = 3,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BookingTime = new DateTime(2025, 1, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SessionId = 2,
-                            UserId = 4
-                        },
-                        new
-                        {
-                            Id = 6,
-                            BookingTime = new DateTime(2025, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SessionId = 4,
-                            UserId = 4
-                        });
                 });
 
             modelBuilder.Entity("cinema_be.Entities.Hall", b =>
@@ -91,37 +146,17 @@ namespace cinema_be.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Capacity")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Сapacity")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
                     b.ToTable("Halls");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Альфа",
-                            Сapacity = 302
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Парадиз",
-                            Сapacity = 377
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Арена",
-                            Сapacity = 346
-                        });
                 });
 
             modelBuilder.Entity("cinema_be.Entities.Movie", b =>
@@ -180,6 +215,33 @@ namespace cinema_be.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("cinema_be.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
             modelBuilder.Entity("cinema_be.Entities.Session", b =>
                 {
                     b.Property<int>("Id")
@@ -208,89 +270,6 @@ namespace cinema_be.Migrations
                     b.HasIndex("MovieId");
 
                     b.ToTable("Sessions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Date = new DateTime(2025, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 21, 45, 0, 0),
-                            HallId = 1,
-                            MovieId = 1,
-                            StartTime = new TimeSpan(0, 19, 55, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Date = new DateTime(2025, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 21, 45, 0, 0),
-                            HallId = 1,
-                            MovieId = 1,
-                            StartTime = new TimeSpan(0, 19, 55, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Date = new DateTime(2025, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 21, 45, 0, 0),
-                            HallId = 1,
-                            MovieId = 1,
-                            StartTime = new TimeSpan(0, 19, 55, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Date = new DateTime(2025, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 12, 0, 0, 0),
-                            HallId = 2,
-                            MovieId = 2,
-                            StartTime = new TimeSpan(0, 10, 10, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Date = new DateTime(2025, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 18, 10, 0, 0),
-                            HallId = 2,
-                            MovieId = 2,
-                            StartTime = new TimeSpan(0, 16, 20, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Date = new DateTime(2025, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 12, 0, 0, 0),
-                            HallId = 2,
-                            MovieId = 2,
-                            StartTime = new TimeSpan(0, 10, 10, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Date = new DateTime(2025, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 18, 10, 0, 0),
-                            HallId = 2,
-                            MovieId = 2,
-                            StartTime = new TimeSpan(0, 16, 20, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Date = new DateTime(2025, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 22, 10, 0, 0),
-                            HallId = 3,
-                            MovieId = 3,
-                            StartTime = new TimeSpan(0, 20, 10, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Date = new DateTime(2025, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 22, 10, 0, 0),
-                            HallId = 3,
-                            MovieId = 3,
-                            StartTime = new TimeSpan(0, 20, 10, 0, 0)
-                        });
                 });
 
             modelBuilder.Entity("cinema_be.Entities.Ticket", b =>
@@ -310,26 +289,6 @@ namespace cinema_be.Migrations
                     b.HasIndex("HallId");
 
                     b.ToTable("Tickets");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            HallId = 1,
-                            Price = 250m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            HallId = 3,
-                            Price = 220m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            HallId = 2,
-                            Price = 230m
-                        });
                 });
 
             modelBuilder.Entity("cinema_be.Entities.User", b =>
@@ -338,75 +297,114 @@ namespace cinema_be.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsAdmin")
+                    b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("PasswordHash")
-                        .IsRequired()
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "osadets@gmail.com",
-                            IsAdmin = false,
-                            PasswordHash = "Qwerty!",
-                            UserName = "Sasha Osadets"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Email = "fedor@gmail.com",
-                            IsAdmin = false,
-                            PasswordHash = "Qwerty!",
-                            UserName = "Fedor"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Email = "Maksym@gmail.com",
-                            IsAdmin = false,
-                            PasswordHash = "Qwerty!",
-                            UserName = "Maksym Banatskyi"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Email = "MaksymL@gmail.com",
-                            IsAdmin = false,
-                            PasswordHash = "Qwerty!",
-                            UserName = "Maksym Lazarchuk"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Email = "Volodymyr@gmail.com",
-                            IsAdmin = false,
-                            PasswordHash = "Qwerty!",
-                            UserName = "Volodymyr Yakovchuk"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Email = "admin@gmail.com",
-                            IsAdmin = true,
-                            PasswordHash = "psw!admin",
-                            UserName = "Admin"
-                        });
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.HasOne("cinema_be.Entities.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.HasOne("cinema_be.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.HasOne("cinema_be.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
+                {
+                    b.HasOne("cinema_be.Entities.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("cinema_be.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.HasOne("cinema_be.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("cinema_be.Entities.Booking", b =>
