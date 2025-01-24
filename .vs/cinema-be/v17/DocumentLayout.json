@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\repo\\cinema-be\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\repo\\cinema-be\\cinema-be\\services\\hallservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\services\\hallservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|d:\\vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\repo\\cinema-be\\cinema-be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{33FC6944-D814-4BA7-B39E-3855CDDEB7E4}|cinema-be\\cinema-be.csproj|solutionrelative:cinema-be\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,19 +27,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HallService.cs",
+              "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\repo\\cinema-be\\cinema-be\\Services\\HallService.cs",
+              "RelativeDocumentMoniker": "cinema-be\\Services\\HallService.cs",
+              "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\repo\\cinema-be\\cinema-be\\Services\\HallService.cs",
+              "RelativeToolTip": "cinema-be\\Services\\HallService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-24T20:16:43.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\repo\\cinema-be\\cinema-be\\Program.cs",
               "RelativeDocumentMoniker": "cinema-be\\Program.cs",
               "ToolTip": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\repo\\cinema-be\\cinema-be\\Program.cs",
               "RelativeToolTip": "cinema-be\\Program.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAqwEAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T21:17:58.895Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Vodnic\\4 \u043A\u0443\u0440\u0441\\2 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\practice\\repo\\cinema-be\\cinema-be\\appsettings.json",
               "RelativeDocumentMoniker": "cinema-be\\appsettings.json",
