@@ -2,6 +2,8 @@
 using cinema_be.Configuration;
 using cinema_be.Entities;
 using cinema_be.Helpers;
+using cinema_be.Interfaces;
+using cinema_be.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +28,9 @@ namespace cinema_be
 
             builder.Services.AddControllers();
             builder.Services.AddHttpClient<TmdbService>();
+
+            builder.Services.AddScoped<IMovieService, MovieService>();
+            builder.Services.AddScoped<IRepository<Movie>, Repository<Movie>>();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

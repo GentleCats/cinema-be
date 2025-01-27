@@ -190,50 +190,50 @@ namespace cinema_be.Helpers
             );
         }
 
-        public static void SeedUser(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>().HasData(
-                new User[]
-                {
-                    new User()
-                    {
-                        Id= 1,
-                        UserName ="Sasha Osadets",
-                        Email = "osadets@gmail.com",
-                    },
-                    new User()
-                    {
-                        Id= 2,
-                        UserName ="Fedor",
-                        Email = "fedor@gmail.com",
-                    },
-                    new User()
-                    {
-                        Id= 3,
-                        UserName ="Maksym Banatskyi",
-                        Email = "Maksym@gmail.com",
-                    },
-                    new User()
-                    {
-                        Id= 4,
-                        UserName ="Maksym Lazarchuk",
-                        Email = "MaksymL@gmail.com",
-                    },
-                    new User()
-                    {
-                        Id= 5,
-                        UserName ="Volodymyr Yakovchuk",
-                        Email = "Volodymyr@gmail.com",
-                    },
-                    new User()
-                    {
-                        Id= 6,
-                        UserName ="Admin",
-                        Email = "admin@gmail.com",
-                    },
-                }
-            );
-        }
+        //public static void SeedUser(this ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<User>().HasData(
+        //        new User[]
+        //        {
+        //            new User()
+        //            {
+        //                Id= 1,
+        //                UserName ="Sasha Osadets",
+        //                Email = "osadets@gmail.com",
+        //            },
+        //            new User()
+        //            {
+        //                Id= 2,
+        //                UserName ="Fedor",
+        //                Email = "fedor@gmail.com",
+        //            },
+        //            new User()
+        //            {
+        //                Id= 3,
+        //                UserName ="Maksym Banatskyi",
+        //                Email = "Maksym@gmail.com",
+        //            },
+        //            new User()
+        //            {
+        //                Id= 4,
+        //                UserName ="Maksym Lazarchuk",
+        //                Email = "MaksymL@gmail.com",
+        //            },
+        //            new User()
+        //            {
+        //                Id= 5,
+        //                UserName ="Volodymyr Yakovchuk",
+        //                Email = "Volodymyr@gmail.com",
+        //            },
+        //            new User()
+        //            {
+        //                Id= 6,
+        //                UserName ="Admin",
+        //                Email = "admin@gmail.com",
+        //            },
+        //        }
+        //    );
+        //}
 
         public static void SeedTicket(this ModelBuilder modelBuilder)
         {

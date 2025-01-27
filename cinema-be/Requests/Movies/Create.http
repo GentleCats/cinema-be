@@ -1,0 +1,20 @@
+@cinema_be_HostAddress = https://localhost:7046
+POST {{cinema_be_HostAddress}}/api/Movie/create/
+Content-Type: application/json
+
+{
+  "title": "Inception",
+  "description": "A mind-bending thriller where dream invasion is possible.",
+  "duration": "02:28:00",
+  "country": "USA",
+  "genre": "Sci-Fi",
+  "releaseDate": "2010-07-16",
+  "endDate": null,
+  "director": "Christopher Nolan",
+  "cast": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page",
+  "rating": 8.8,
+  "trailerUrl": "https://www.youtube.com/watch?v=YoHD9XEInc0",
+  "imageUrl": "https://example.com/inception.jpg"
+}
+
+
