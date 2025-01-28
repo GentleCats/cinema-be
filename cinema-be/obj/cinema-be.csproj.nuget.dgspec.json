@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Vodnic\\4 курс\\2 семестр\\practice\\repo\\cinema-be\\cinema-be\\cinema-be.csproj": {}
+    "G:\\Presentation\\Clone\\cinema\\cinema-be\\cinema-be\\cinema-be\\cinema-be.csproj": {}
   },
   "projects": {
-    "D:\\Vodnic\\4 курс\\2 семестр\\practice\\repo\\cinema-be\\cinema-be\\cinema-be.csproj": {
+    "G:\\Presentation\\Clone\\cinema\\cinema-be\\cinema-be\\cinema-be\\cinema-be.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Vodnic\\4 курс\\2 семестр\\practice\\repo\\cinema-be\\cinema-be\\cinema-be.csproj",
+        "projectUniqueName": "G:\\Presentation\\Clone\\cinema\\cinema-be\\cinema-be\\cinema-be\\cinema-be.csproj",
         "projectName": "cinema-be",
-        "projectPath": "D:\\Vodnic\\4 курс\\2 семестр\\practice\\repo\\cinema-be\\cinema-be\\cinema-be.csproj",
-        "packagesPath": "C:\\Users\\Олександра\\.nuget\\packages\\",
-        "outputPath": "D:\\Vodnic\\4 курс\\2 семестр\\practice\\repo\\cinema-be\\cinema-be\\obj\\",
+        "projectPath": "G:\\Presentation\\Clone\\cinema\\cinema-be\\cinema-be\\cinema-be\\cinema-be.csproj",
+        "packagesPath": "C:\\Users\\olehy\\.nuget\\packages\\",
+        "outputPath": "G:\\Presentation\\Clone\\cinema\\cinema-be\\cinema-be\\cinema-be\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Олександра\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\olehy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -88,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

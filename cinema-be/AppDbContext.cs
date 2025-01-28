@@ -22,7 +22,7 @@ namespace cinema_be
         {
             base.OnModelCreating(modelBuilder);
 
-            /*DbInitializer.SeedUser(modelBuilder);
+/*            DbInitializer.SeedUser(modelBuilder);
             DbInitializer.SeedHall(modelBuilder);
             DbInitializer.SeedSession(modelBuilder);
             DbInitializer.SeedBooking(modelBuilder);
