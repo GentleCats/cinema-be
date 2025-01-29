@@ -46,7 +46,7 @@ namespace cinema_be.Controllers
                 Email = request.Email,
             };
 
-            // Створення користувача
+            
             var result = await userManager.CreateAsync(user, request.Password);
 
             if (result.Succeeded)

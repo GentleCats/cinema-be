@@ -14,7 +14,8 @@ Content-Type: application/json
   "cast": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page",
   "rating": 8.8,
   "trailerUrl": "https://www.youtube.com/watch?v=YoHD9XEInc0",
-  "imageUrl": "https://example.com/inception.jpg"
+  "imageUrl": "https://example.com/inception.jpg",
+  "sessions": null
 }
 
 
