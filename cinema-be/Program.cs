@@ -21,7 +21,17 @@ namespace cinema_be
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDB"));
             });
 
-            // Налаштування Identity
+            // Add CORS policy
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
             builder.Services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
@@ -61,12 +71,14 @@ namespace cinema_be
                 app.UseSwaggerUI();
             }
 
+            // Enable CORS
+            app.UseCors("AllowAll");
+
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
