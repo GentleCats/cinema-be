@@ -2,6 +2,8 @@
 using cinema_be.Configuration;
 using cinema_be.Entities;
 using cinema_be.Helpers;
+using cinema_be.Interfaces;
+using cinema_be.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,13 +21,26 @@ namespace cinema_be
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDB"));
             });
 
-            // Налаштування Identity
+            // Add CORS policy
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
             builder.Services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
             builder.Services.AddControllers();
             builder.Services.AddHttpClient<TmdbService>();
+
+            builder.Services.AddScoped<IMovieService, MovieService>();
+            builder.Services.AddScoped<IRepository<Movie>, Repository<Movie>>();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -56,12 +71,14 @@ namespace cinema_be
                 app.UseSwaggerUI();
             }
 
+            // Enable CORS
+            app.UseCors("AllowAll");
+
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
