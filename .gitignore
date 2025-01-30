@@ -491,3 +491,13 @@ logs/
 *.log"cinema-be/Sqlite.db-shm" 
 
 obj/
+# Ignore SQLite temp files
+cinema-be/Sqlite.db-shm
+cinema-be/Sqlite.db-wal
+
+# Ignore obj folder and related files
+cinema-be/obj/
+/cinema-be/Sqlite.db-wal
+/cinema-be/Sqlite.db-shm
+/cinema-be/obj/cinema-be.csproj.nuget.g.targets
+/cinema-be/obj/Debug/net8.0/cinema-be.GeneratedMSBuildEditorConfig.editorconfig
