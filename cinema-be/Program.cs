@@ -42,11 +42,13 @@ namespace cinema_be
             builder.Services.AddHttpClient<TmdbService>();
 
             builder.Services.AddScoped<IMovieService, MovieService>();
+            builder.Services.AddScoped<ITMDBService, TmdbService>();
             builder.Services.AddScoped<IRepository<Movie>, Repository<Movie>>();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddAutoMapper(typeof(MappingProfile));
             var app = builder.Build();
 
             using (var scope = app.Services.CreateScope())
