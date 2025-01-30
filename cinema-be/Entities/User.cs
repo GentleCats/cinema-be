@@ -6,6 +6,6 @@ namespace cinema_be.Entities
 {
     public class User: IdentityUser<int>
     {
-        public ICollection<Booking> Bookings { get; set; }
+        public ICollection<Ticket> Tickets { get; set; }
     }
 }

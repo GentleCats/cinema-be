@@ -489,3 +489,5 @@ appsettings.Production.json
 
 logs/
 *.log"cinema-be/Sqlite.db-shm" 
+
+obj/

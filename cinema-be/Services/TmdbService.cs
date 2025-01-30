@@ -108,5 +108,22 @@ public class TmdbService
             return null;
         }
     }
+    public async Task FixMoviePostersAsync()
+    {
+        
+
+        var movies = await _dbContext.Movies.ToListAsync();
+
+        foreach (var movie in movies)
+        {
+            var tmdbMovie = await GetMovieDetailsAsync(movie.Id);
+            if (tmdbMovie != null && tmdbMovie.ImageUrl != null)
+            {
+                movie.ImageUrl = tmdbMovie.ImageUrl;
+            }
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
 
 }

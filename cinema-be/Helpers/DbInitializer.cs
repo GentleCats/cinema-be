@@ -139,57 +139,7 @@ namespace cinema_be.Helpers
                 });
         }
 
-        public static void SeedBooking(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Booking>().HasData(
-                new Booking[]
-                {
-                    new Booking()
-                    {
-                        Id = 1,
-                        BookingTime= new DateTime(2025,1,17),
-                        SessionId = 1,
-                        UserId=1,
-                    },
-                    new Booking()
-                    {
-                        Id = 2,
-                        BookingTime= new DateTime(2025,1,14),
-                        SessionId = 8,
-                        UserId=2,
-                    },
-                    new Booking()
-                    {
-                        Id = 3,
-                        BookingTime= new DateTime(2025,1,15),
-                        SessionId = 4,
-                        UserId=3,
-                    },
-                    new Booking()
-                    {
-                        Id = 4,
-                        BookingTime= new DateTime(2025,1,17),
-                        SessionId = 3,
-                        UserId=3,
-                    },
-                    new Booking()
-                    {
-                        Id = 5,
-                        BookingTime= new DateTime(2025,1,12),
-                        SessionId = 2,
-                        UserId=4,
-                    },
-                    new Booking()
-                    {
-                        Id = 6,
-                        BookingTime= new DateTime(2025,1,10),
-                        SessionId = 4,
-                        UserId=4,
-                    },
-                }
-            );
-        }
-
+        
         //public static void SeedUser(this ModelBuilder modelBuilder)
         //{
         //    modelBuilder.Entity<User>().HasData(
@@ -235,30 +185,29 @@ namespace cinema_be.Helpers
         //    );
         //}
 
-        public static void SeedTicket(this ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Ticket>().HasData(
-                new Ticket[]
-                {
-                    new Ticket()
-                    {
-                        Id = 1,
-                        Price = 250,
-                        HallId = 1,
-                    },
-                    new Ticket()
-                    {
-                        Id = 2,
-                        Price = 220,
-                        HallId = 3,
-                    },
-                    new Ticket()
-                    {
-                        Id = 3,
-                        Price = 230,
-                        HallId = 2,
-                    },
-                });
-        }
+        //public static void SeedTicket(this ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Ticket>().HasData(
+        //        new Ticket[]
+        //        {
+        //            new Ticket()
+        //            {
+        //                Id = 1,
+        //                Price = 250,
+        //            },
+        //            new Ticket()
+        //            {
+        //                Id = 2,
+        //                Price = 220,
+        //            },
+        //            new Ticket()
+        //            {
+        //                Id = 3,
+        //                Price = 230,
+        //                HallId = 2,
+        //            },
+        //        });
+        //}
+    
     }
 }

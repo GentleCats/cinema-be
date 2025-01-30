@@ -1,4 +1,6 @@
-﻿namespace cinema_be.Models.Tmdb
+﻿using System.Text.Json.Serialization;
+
+namespace cinema_be.Models.Tmdb
 {
     public class TmdbResponse
     {
@@ -17,6 +19,7 @@
         public TmdbCredits Credits { get; set; }
         public double VoteAverage { get; set; }
         public TmdbVideos Videos { get; set; }
+        [JsonPropertyName("poster_path")]
         public string PosterPath { get; set; }
     }
 
