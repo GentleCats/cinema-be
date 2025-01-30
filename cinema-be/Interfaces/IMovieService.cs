@@ -1,4 +1,5 @@
 ﻿using cinema_be.Entities;
+using cinema_be.Models.DTOs;
 
 namespace cinema_be.Interfaces
 {
@@ -7,7 +8,7 @@ namespace cinema_be.Interfaces
         List<Movie> GetMovies();
 
         Movie? GetMovieById(int id);
-        void Create(Movie movie);
+        void Create(CreateMovieDto movie);
         void Update(Movie movie);
         void Delete(int id);
 
