@@ -488,4 +488,4 @@ appsettings.Development.json
 appsettings.Production.json
 
 logs/
-*.log
+*.log"cinema-be/Sqlite.db-shm" 
