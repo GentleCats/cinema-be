@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using cinema_be.Entities;
 using cinema_be.Models.Tmdb;
 using cinema_be.Configuration;
+using cinema_be.Interfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using cinema_be;
-
-public class TmdbService
+//1222064
+public class TmdbService: ITMDBService
 {
     private readonly HttpClient _httpClient;
     private readonly AppDbContext _dbContext;
@@ -25,9 +26,9 @@ public class TmdbService
         _dbContext = dbContext;
     }
 
-    public async Task<List<Movie>> GetPopularMoviesAsync()
+    public async Task<List<Movie>> GetPopularMoviesAsync(int page = 1)
     {
-        var response = await _httpClient.GetAsync($"https://api.themoviedb.org/3/movie/popular?api_key={_apiKey}");
+        var response = await _httpClient.GetAsync($"https://api.themoviedb.org/3/movie/popular?api_key={_apiKey}&page={page}");
         if (!response.IsSuccessStatusCode)
         {
             throw new HttpRequestException($"Error fetching popular movies: {response.ReasonPhrase}");
@@ -75,15 +76,15 @@ public class TmdbService
             var content = await response.Content.ReadAsStringAsync();
             var detailedMovie = JsonSerializer.Deserialize<TmdbMovie>(content, _jsonOptions);
 
-
             DateTime? releaseDate = null;
             if (!string.IsNullOrEmpty(detailedMovie.ReleaseDate) && DateTime.TryParse(detailedMovie.ReleaseDate, out var parsedDate))
             {
                 releaseDate = parsedDate;
             }
-
+            Console.WriteLine(detailedMovie.ProductionCountries);
             return new Movie
             {
+                Id = detailedMovie.Id,
                 Title = detailedMovie.Title,
                 Description = detailedMovie.Overview,
                 Duration = detailedMovie.Runtime.HasValue ? TimeSpan.FromMinutes(detailedMovie.Runtime.Value) : TimeSpan.FromMinutes(120),
@@ -108,5 +109,4 @@ public class TmdbService
             return null;
         }
     }
-
 }

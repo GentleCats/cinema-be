@@ -1,20 +1,25 @@
 ﻿using cinema_be.Entities;
 using cinema_be.Interfaces;
+using cinema_be.Models.DTOs;
+using AutoMapper;
 
 namespace cinema_be.Services
 {
     public class MovieService : IMovieService
     {
         private readonly IRepository<Movie> movieRepo;
+        private readonly IMapper _mapper;
 
-        public MovieService(IRepository<Movie> movieRepo)
+        public MovieService(IRepository<Movie> movieRepo, IMapper mapper)
         {
             this.movieRepo = movieRepo;
+            _mapper = mapper;
         }
-        public void Create(Movie movie)
+        public void Create(CreateMovieDto movieDto)
         {
             try
             {
+                var movie = _mapper.Map<Movie>(movieDto);
                 movieRepo.Insert(movie);
                 movieRepo.Save();
                 Console.WriteLine("Movie added successfully");
