@@ -14,6 +14,8 @@ namespace cinema_be
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
             builder.Services.Configure<TmdbSettings>(builder.Configuration.GetSection("TmdbSettings"));
             // Add services to the container.
             builder.Services.AddDbContext<AppDbContext>(options =>
@@ -56,9 +58,11 @@ namespace cinema_be
                 {
                     var context = services.GetRequiredService<AppDbContext>();
                     var tmdbService = services.GetRequiredService<TmdbService>();
+                    await context.Movies.ExecuteDeleteAsync();
+                    await context.SaveChangesAsync();
 
-                    
                     await DbInitializer.SeedMovie(context, tmdbService);
+                   // await tmdbService.FixMoviePostersAsync();
                 }
                 catch (Exception ex)
                 {

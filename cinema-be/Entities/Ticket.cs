@@ -10,8 +10,13 @@ namespace cinema_be.Entities
         public int Id { get; set; }
         [Required, Range(0.01, double.MaxValue, ErrorMessage = "Price must be greater than 0.")]
         public decimal Price { get; set; }
-        [Required, ForeignKey("Hall")]
-        public int HallId { get; set; }
-        public Hall Hall { get; set; }
+        [Required]
+        public DateTime BookingTime { get; set; }
+        [Required, ForeignKey(nameof(User))]
+        public int UserId { get; set; }
+        [Required, ForeignKey(nameof(Session))]
+        public int SessionId { get; set; }
+        public User User { get; set; }
+        public Session Session { get; set; }
     }
 }

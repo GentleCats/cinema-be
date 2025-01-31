@@ -21,7 +21,6 @@ namespace cinema_be.Entities
 
         public Movie Movie { get; set; }
         public Hall Hall { get; set; }
-        public ICollection<Booking> Bookings { get; set; }
 
     }
 
