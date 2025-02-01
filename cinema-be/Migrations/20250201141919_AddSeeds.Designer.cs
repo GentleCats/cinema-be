@@ -11,7 +11,7 @@ using cinema_be;
 namespace cinema_be.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250201134742_AddSeeds")]
+    [Migration("20250201141919_AddSeeds")]
     partial class AddSeeds
     {
         /// <inheritdoc />

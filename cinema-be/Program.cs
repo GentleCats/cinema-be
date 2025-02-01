@@ -59,8 +59,6 @@ namespace cinema_be
                 {
                     var context = services.GetRequiredService<AppDbContext>();
                     var tmdbService = services.GetRequiredService<TmdbService>();
-                    await context.Movies.ExecuteDeleteAsync();
-                    await context.SaveChangesAsync();
                     await DbInitializer.SeedMovie(context, tmdbService);
                     // await tmdbService.FixMoviePostersAsync();
                 }
