@@ -21,12 +21,13 @@ namespace cinema_be
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-/*            DbInitializer.SeedUser(modelBuilder);
-            DbInitializer.SeedHall(modelBuilder);
-            DbInitializer.SeedSession(modelBuilder);
-            DbInitializer.SeedBooking(modelBuilder);
-            DbInitializer.SeedTicket(modelBuilder);*/
+            modelBuilder.SeedHall();
+            modelBuilder.SeedSession();
+            // DbInitializer.SeedUser(modelBuilder);
+            // DbInitializer.SeedHall(modelBuilder);
+            // DbInitializer.SeedSession(modelBuilder);
+            // DbInitializer.SeedBooking(modelBuilder);
+            // DbInitializer.SeedTicket(modelBuilder);
         }
 
 

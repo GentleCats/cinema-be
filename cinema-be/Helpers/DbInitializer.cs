@@ -34,7 +34,7 @@ namespace cinema_be.Helpers
                     new Session()
                     {
                         Id = 1,
-                        MovieId = 1,
+                        MovieId = 85,
                         HallId = 1,
                         StartTime = new TimeSpan(19, 55, 0),
                         EndTime = new TimeSpan(21, 45, 0),
@@ -43,7 +43,7 @@ namespace cinema_be.Helpers
                     new Session()
                     {
                         Id = 2,
-                        MovieId = 1,
+                        MovieId = 85,
                         HallId = 1,
                         StartTime = new TimeSpan(19, 55, 0),
                         EndTime = new TimeSpan(21, 45, 0),
@@ -52,7 +52,7 @@ namespace cinema_be.Helpers
                     new Session()
                     {
                         Id = 3,
-                        MovieId = 1,
+                        MovieId = 85,
                         HallId = 1,
                         StartTime = new TimeSpan(19, 55, 0),
                         EndTime = new TimeSpan(21, 45, 0),
@@ -61,7 +61,7 @@ namespace cinema_be.Helpers
                     new Session()
                     {
                         Id = 4,
-                        MovieId = 2,
+                        MovieId = 426063,
                         HallId = 2,
                         StartTime = new TimeSpan(10, 10, 0),
                         EndTime = new TimeSpan(12, 00, 0),
@@ -70,7 +70,7 @@ namespace cinema_be.Helpers
                     new Session()
                     {
                         Id = 5,
-                        MovieId = 2,
+                        MovieId = 426063,
                         HallId = 2,
                         StartTime = new TimeSpan(16, 20, 0),
                         EndTime = new TimeSpan(18, 10, 0),
@@ -79,7 +79,7 @@ namespace cinema_be.Helpers
                     new Session()
                     {
                         Id = 6,
-                        MovieId = 2,
+                        MovieId = 426063,
                         HallId = 2,
                         StartTime = new TimeSpan(10, 10, 0),
                         EndTime = new TimeSpan(12, 00, 0),
@@ -88,7 +88,7 @@ namespace cinema_be.Helpers
                     new Session()
                     {
                         Id = 7,
-                        MovieId = 2,
+                        MovieId = 426063,
                         HallId = 2,
                         StartTime = new TimeSpan(16, 20, 0),
                         EndTime = new TimeSpan(18, 10, 0),
@@ -97,7 +97,7 @@ namespace cinema_be.Helpers
                     new Session()
                     {
                         Id = 8,
-                        MovieId = 3,
+                        MovieId = 426063,
                         HallId = 3,
                         StartTime = new TimeSpan(20, 10, 0),
                         EndTime = new TimeSpan(22, 10, 0),
@@ -106,7 +106,7 @@ namespace cinema_be.Helpers
                     new Session()
                     {
                         Id = 9,
-                        MovieId = 3,
+                        MovieId = 426063,
                         HallId = 3,
                         StartTime = new TimeSpan(20, 10, 0),
                         EndTime = new TimeSpan(22, 10, 0),

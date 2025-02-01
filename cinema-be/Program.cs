@@ -43,7 +43,9 @@ namespace cinema_be
 
             builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<ITMDBService, TmdbService>();
+            builder.Services.AddScoped<ISessionService, SessionService>();
             builder.Services.AddScoped<IRepository<Movie>, Repository<Movie>>();
+            builder.Services.AddScoped<IRepository<Session>, Repository<Session>>();
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -60,9 +62,8 @@ namespace cinema_be
                     var tmdbService = services.GetRequiredService<TmdbService>();
                     await context.Movies.ExecuteDeleteAsync();
                     await context.SaveChangesAsync();
-
                     await DbInitializer.SeedMovie(context, tmdbService);
-                   // await tmdbService.FixMoviePostersAsync();
+                    // await tmdbService.FixMoviePostersAsync();
                 }
                 catch (Exception ex)
                 {

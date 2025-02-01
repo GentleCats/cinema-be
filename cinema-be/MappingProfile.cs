@@ -7,5 +7,6 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
       CreateMap<CreateMovieDto, Movie>();
+      CreateMap<CreateSessionDto, Session>();
     }
 }
