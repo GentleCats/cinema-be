@@ -20,24 +20,7 @@ namespace cinema_be.Controllers
             _tmdbService = tmdbService;
         }
 
-        [AllowAnonymous]
-        [HttpPost("create")]
-        public ActionResult Create([FromBody] CreateMovieDto movie)
-        {
-            if (!ModelState.IsValid)
-            {
-
-                var errors = ModelState.Values
-                    .SelectMany(v => v.Errors)
-                    .Select(e => e.ErrorMessage)
-                    .ToList();
-                return BadRequest(new { success = false, errors });
-            }
-
-            _movieService.Create(movie);
-            return NoContent();
-        }
-
+        
         [AllowAnonymous]
         [HttpGet("get-all")]
         public ActionResult GetAll()
