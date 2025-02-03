@@ -1,0 +1,23 @@
+
+@cinema_be_HostAddress = https://localhost:7046
+POST https://localhost:7046/api/Admin/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiTWVtYmVyIiwiQWRtaW4iXSwiZXhwIjoxNzM5MjEyOTQwfQ.Y4Y2fbCZEzhU8W0tTVDMqSKZ9fLfRNzA1n1NUozhLksPEiQT4o6vKVWDH1L8md8GgFTsIqxxD5kpgSgtEqWJGA
+
+{
+  "title": "Inception",
+  "description": "A mind-bending thriller where dream invasion is possible.",
+  "duration": "02:28:00",
+  "country": "USA",
+  "genre": "Sci-Fi",
+  "releaseDate": "2010-07-16",
+  "endDate": null,
+  "director": "Christopher Nolan",
+  "cast": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page",
+  "rating": 8.8,
+  "trailerUrl": "https://www.youtube.com/watch?v=YoHD9XEInc0",
+  "imageUrl": "https://example.com/inception.jpg",
+  "sessions": null
+}
+
+

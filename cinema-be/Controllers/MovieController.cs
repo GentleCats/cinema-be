@@ -17,24 +17,7 @@ namespace cinema_be.Controllers
             _movieService = movieService;
         }
 
-        [AllowAnonymous]
-        [HttpPost("create")]
-        public ActionResult Create([FromBody] Movie movie)
-        {
-            if (!ModelState.IsValid)
-            {
-
-                var errors = ModelState.Values
-                    .SelectMany(v => v.Errors)
-                    .Select(e => e.ErrorMessage)
-                    .ToList();
-                return BadRequest(new { success = false, errors });
-            }
-
-            _movieService.Create(movie);
-            return NoContent();
-        }
-
+        
         [AllowAnonymous]
         [HttpGet("get-all")]
         public ActionResult GetAll()
@@ -52,12 +35,6 @@ namespace cinema_be.Controllers
         }
 
 
-        [AllowAnonymous]
-        [HttpDelete("delete/{id}")]
-        public ActionResult DeleteById(int id)
-        {
-            _movieService.Delete(id);
-            return NoContent();
-        }
+       
     }
 }
