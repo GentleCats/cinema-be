@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using cinema_be;
 
@@ -10,9 +11,11 @@ using cinema_be;
 namespace cinema_be.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250201141919_AddSeeds")]
+    partial class AddSeeds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -130,6 +133,9 @@ namespace cinema_be.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Seat")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.ToTable("Halls");
@@ -139,19 +145,22 @@ namespace cinema_be.Migrations
                         {
                             Id = 1,
                             Capacity = 302,
-                            Name = "Альфа"
+                            Name = "Альфа",
+                            Seat = 0
                         },
                         new
                         {
                             Id = 2,
                             Capacity = 377,
-                            Name = "Парадиз"
+                            Name = "Парадиз",
+                            Seat = 0
                         },
                         new
                         {
                             Id = 3,
                             Capacity = 346,
-                            Name = "Арена"
+                            Name = "Арена",
+                            Seat = 0
                         });
                 });
 
@@ -365,9 +374,6 @@ namespace cinema_be.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("Seat")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("SessionId")
                         .HasColumnType("INTEGER");

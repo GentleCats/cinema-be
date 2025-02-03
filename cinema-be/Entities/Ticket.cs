@@ -16,6 +16,8 @@ namespace cinema_be.Entities
         public int UserId { get; set; }
         [Required, ForeignKey(nameof(Session))]
         public int SessionId { get; set; }
+        [Required]
+        public int Seat { get; set; }
         public User User { get; set; }
         public Session Session { get; set; }
     }
