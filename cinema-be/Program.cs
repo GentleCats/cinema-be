@@ -1,4 +1,5 @@
-
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using cinema_be.Configuration;
 using cinema_be.Entities;
 using cinema_be.Helpers;
@@ -6,6 +7,7 @@ using cinema_be.Interfaces;
 using cinema_be.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace cinema_be
 {
@@ -45,12 +47,43 @@ namespace cinema_be
             builder.Services.AddScoped<ITMDBService, TmdbService>();
             builder.Services.AddScoped<ISessionService, SessionService>();
             builder.Services.AddScoped<IHallService, HallService>();
+            builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+            var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+            var secretKey = jwtSettings.GetValue<string>("TokenKey");
+
+            if (string.IsNullOrEmpty(secretKey))
+            {
+                throw new InvalidOperationException("JWT Secret Key is missing or empty in appsettings.json.");
+            }
+
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
+            RoleClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+        };
+    });
+
+            builder.Services.AddAuthorization();
+
             var app = builder.Build();
 
             using (var scope = app.Services.CreateScope())
@@ -86,6 +119,23 @@ namespace cinema_be
             app.UseAuthorization();
 
             app.MapControllers();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var serviceProvider = scope.ServiceProvider;
+                var logger = serviceProvider.GetRequiredService<ILogger<Program>>();
+
+                try
+                {
+                    await SeederDB.SeedData(serviceProvider);
+                    logger.LogInformation("Seeding data to the db");
+
+                }
+                catch (Exception ex)
+                {
+                    logger.LogError(ex, "A problem occurred during migration");
+                }
+            }
 
             app.Run();
         }

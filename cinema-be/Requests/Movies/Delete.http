@@ -1,3 +1,0 @@
-
-@cinema_be_HostAddress = https://localhost:7046
-DELETE {{cinema_be_HostAddress}}/api/movie/delete/{id}

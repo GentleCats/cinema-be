@@ -54,14 +54,7 @@ namespace cinema_be.Controllers
             return Ok(movies);
         }
 
-        [AllowAnonymous]
-        [HttpDelete("delete/{id}")]
-        public ActionResult DeleteById(int id)
-        {
-            _movieService.Delete(id);
-            return NoContent();
-        }
-
+        
         [AllowAnonymous]
         [HttpGet("get-popular")]
         public async Task<ActionResult> GetPopular(int page){

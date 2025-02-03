@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Authorization;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using cinema_be.Models.Account;
+using cinema_be.Services;
+using cinema_be.Interfaces;
 
 namespace cinema_be.Controllers
 {
@@ -16,14 +18,19 @@ namespace cinema_be.Controllers
     {
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
+        private readonly ITokenService tokenService;
         private readonly RoleManager<Role> roleManager;
+        private readonly IConfiguration config;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<Role> roleManager, IConfiguration config, ITokenService tokenService
           )
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
-            
+            this.roleManager = roleManager;
+            this.config = config;
+            this.tokenService = tokenService;
+
         }
 
         [AllowAnonymous]
@@ -75,16 +82,35 @@ namespace cinema_be.Controllers
 
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<JsonResult> Login(string username, string password, bool rememberMe)
+        public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var identityResult = await signInManager.PasswordSignInAsync(username, password, rememberMe, false);
-
-                var success = identityResult.Succeeded;
-                return Json(new { success });
+                return BadRequest(ModelState);
             }
-            return Json(false);
+
+            var user = await userManager.FindByNameAsync(loginDto.Username);
+            if (user == null)
+            {
+                return Unauthorized(new { message = "Invalid username or password" });
+            }
+
+            var result = await signInManager.PasswordSignInAsync(user, loginDto.Password, loginDto.RememberMe, false);
+            if (!result.Succeeded)
+            {
+                return Unauthorized(new { message = "Invalid username or password" });
+            }
+
+            var token = await tokenService.GenerateToken(user);
+
+            return Ok(new { token });
+        }
+
+        public class LoginDto
+        {
+            public string Username { get; set; } = string.Empty;
+            public string Password { get; set; } = string.Empty;
+            public bool RememberMe { get; set; }
         }
     }
 
