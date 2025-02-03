@@ -16,7 +16,7 @@ namespace cinema_be.Controllers
             _hallService = hallService;
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpGet("get-all")] 
         public ActionResult GetAll()
         {
@@ -24,7 +24,7 @@ namespace cinema_be.Controllers
             return Ok(halls);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpGet("get-by-id/{id}")] 
         public ActionResult GetById(int id)
         {
@@ -32,7 +32,7 @@ namespace cinema_be.Controllers
             return Ok(hall);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost("create")] 
         public ActionResult Create([FromBody] CreateHallDto hallDto)
         {
@@ -49,7 +49,7 @@ namespace cinema_be.Controllers
             return NoContent();
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpDelete("delete/{id}")]
         public ActionResult DeleteById(int id)
         {

@@ -44,6 +44,7 @@ namespace cinema_be
             builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<ITMDBService, TmdbService>();
             builder.Services.AddScoped<ISessionService, SessionService>();
+            builder.Services.AddScoped<IHallService, HallService>();
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             
             builder.Services.AddEndpointsApiExplorer();
