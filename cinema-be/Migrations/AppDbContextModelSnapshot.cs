@@ -132,7 +132,7 @@ namespace cinema_be.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Halls");
+                    b.ToTable("Halls", (string)null);
 
                     b.HasData(
                         new
@@ -208,7 +208,7 @@ namespace cinema_be.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movies", (string)null);
                 });
 
             modelBuilder.Entity("cinema_be.Entities.Role", b =>
@@ -265,7 +265,7 @@ namespace cinema_be.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("Sessions");
+                    b.ToTable("Sessions", (string)null);
 
                     b.HasData(
                         new
@@ -383,7 +383,7 @@ namespace cinema_be.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Tickets");
+                    b.ToTable("Tickets", (string)null);
                 });
 
             modelBuilder.Entity("cinema_be.Entities.User", b =>
