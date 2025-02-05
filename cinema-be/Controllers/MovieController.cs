@@ -14,7 +14,7 @@ namespace cinema_be.Controllers
         private readonly IMovieService _movieService;
         private readonly ITMDBService _tmdbService;
 
-        public MovieController(IMovieService movieService, ITMDBService tmdbService)
+        public MovieController(IMovieService movieService,ITMDBService tmdbService)
         {
             _movieService = movieService;
             _tmdbService = tmdbService;
