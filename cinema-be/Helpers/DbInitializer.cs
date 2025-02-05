@@ -125,15 +125,15 @@ namespace cinema_be.Helpers
                         Id = 1,
                         Name="Альфа",
                         Capacity = 302,
-                        Rows = 14,
-                        Cols = 22
+                        Rows = 15,
+                        Cols = 20
                     },
                     new Hall(){
                         Id = 2,
                         Name="Парадиз",
                         Capacity = 377,
-                        Rows = 18,
-                        Cols = 21
+                        Rows = 17,
+                        Cols = 22
                     },
                     new Hall(){
                         Id = 3,
