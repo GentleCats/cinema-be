@@ -47,6 +47,7 @@ namespace cinema_be
             builder.Services.AddScoped<ITMDBService, TmdbService>();
             builder.Services.AddScoped<ISessionService, SessionService>();
             builder.Services.AddScoped<IHallService, HallService>();
+            builder.Services.AddScoped<ITicketService, TicketService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             
