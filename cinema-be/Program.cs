@@ -8,8 +8,6 @@ using cinema_be.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
-using FluentValidation.AspNetCore;
-using FluentValidation;
 
 namespace cinema_be
 {
@@ -41,9 +39,6 @@ namespace cinema_be
             builder.Services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
-
-            builder.Services.AddFluentValidationAutoValidation();
-            builder.Services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
 
             builder.Services.AddControllers();
             builder.Services.AddHttpClient<TmdbService>();
