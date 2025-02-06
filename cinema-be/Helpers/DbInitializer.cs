@@ -124,24 +124,17 @@ namespace cinema_be.Helpers
                     new Hall(){
                         Id = 1,
                         Name="Альфа",
-                        Capacity = 302,
-                        Rows = 15,
-                        Cols = 20
+                        Capacity = 302
                     },
                     new Hall(){
                         Id = 2,
                         Name="Парадиз",
-                        Capacity = 377,
-                        Rows = 17,
-                        Cols = 22
+                        Capacity = 377
                     },
                     new Hall(){
                         Id = 3,
                         Name="Арена",
-                        Capacity = 346,
-                        Rows = 15,
-                        Cols = 23
-                       
+                        Capacity = 346
                     },
                 });
         }
