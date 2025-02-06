@@ -7,20 +7,23 @@ namespace cinema_be.Validators
     {
         public HallValidator() {
             RuleFor(h => h.Name)
-               .NotEmpty().WithMessage("Name is required.")
-               .MaximumLength(100).WithMessage("Name must not exceed 100 characters.");
+               .NotEmpty().WithMessage("Назва є обов'язковою")
+               .MaximumLength(100).WithMessage("Назва не повинна перевищувати 100 символів.");
             RuleFor(h => h.Capacity)
-            .GreaterThan(0).WithMessage("Capacity must be greater than 0.");
+                .NotEmpty().WithMessage("Місткість є обов'язковою")
+                .GreaterThan(0).WithMessage("Місткість має бути більше 0.");
 
             RuleFor(h => h.Rows)
-                .GreaterThan(0).WithMessage("Rows must be greater than 0.");
+                .NotEmpty().WithMessage("Кількість рядів є обов'язковою")
+                .GreaterThan(0).WithMessage("Кількість рядів має бути більше 0.");
 
             RuleFor(h => h.Cols)
-                .GreaterThan(0).WithMessage("Cols must be greater than 0.");
+                .NotEmpty().WithMessage("Кількість колонок є обов'язковою")
+                .GreaterThan(0).WithMessage("Кількість колонок має бути більше 0.");
 
             RuleFor(h => h)
                 .Must(h => h.Rows * h.Cols <= h.Capacity)
-                .WithMessage("The total number of seats (Rows * Cols) cannot exceed the Capacity.");
+                .WithMessage("Загальна кількість місць (Рядки * Колонки) не може перевищувати місткість залу.");
         }
     }
 }
