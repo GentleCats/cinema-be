@@ -14,16 +14,16 @@ using cinema_be;
 public class TmdbService: ITMDBService
 {
     private readonly HttpClient _httpClient;
-    private readonly AppDbContext _dbContext;
+    //private readonly AppDbContext _dbContext;
     private readonly string _apiKey;
     private readonly JsonSerializerOptions _jsonOptions;
 
-    public TmdbService(HttpClient httpClient, IOptions<TmdbSettings> settings, AppDbContext dbContext)
+    public TmdbService(HttpClient httpClient, IOptions<TmdbSettings> settings)
     {
         _httpClient = httpClient;
         _apiKey = settings.Value.ApiKey;
         _jsonOptions = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-        _dbContext = dbContext;
+       // _dbContext = dbContext;
     }
 
     public async Task<List<Movie>> GetPopularMoviesAsync(int page = 1)
@@ -37,28 +37,28 @@ public class TmdbService: ITMDBService
         var content = await response.Content.ReadAsStringAsync();
         var tmdbResponse = JsonSerializer.Deserialize<TmdbResponse>(content, _jsonOptions);
 
-        var tasks = new List<Task<Movie>>();
+        var tasks = tmdbResponse.Results.Select(tmdbMovie => GetMovieDetailsAsync(tmdbMovie.Id));
 
-        foreach (var tmdbMovie in tmdbResponse.Results)
-        {
-            tasks.Add(GetMovieDetailsAsync(tmdbMovie.Id));
-        }
+        //foreach (var tmdbMovie in tmdbResponse.Results)
+        //{
+        //    tasks.Add(GetMovieDetailsAsync(tmdbMovie.Id));
+        //}
 
         var movies = await Task.WhenAll(tasks);
         var validMovies = movies.Where(m => m != null).ToList();
 
-        foreach (var movie in validMovies)
-        {
-            var existingMovie = await _dbContext.Movies
-                .FirstOrDefaultAsync(m => m.Title == movie.Title);
+        //foreach (var movie in validMovies)
+        //{
+        //    var existingMovie = await _dbContext.Movies
+        //        .FirstOrDefaultAsync(m => m.Title == movie.Title);
 
-            if (existingMovie == null)
-            {
-                _dbContext.Movies.Add(movie);
-            }
-        }
+        //    if (existingMovie == null)
+        //    {
+        //        _dbContext.Movies.Add(movie);
+        //    }
+        //}
 
-        await _dbContext.SaveChangesAsync();
+        //await _dbContext.SaveChangesAsync();
 
         return validMovies;
     }
@@ -81,7 +81,7 @@ public class TmdbService: ITMDBService
             {
                 releaseDate = parsedDate;
             }
-            Console.WriteLine(detailedMovie.ProductionCountries);
+            //Console.WriteLine(detailedMovie.ProductionCountries);
             return new Movie
             {
                 Id = detailedMovie.Id,
@@ -109,22 +109,5 @@ public class TmdbService: ITMDBService
             return null;
         }
     }
-    //public async Task FixMoviePostersAsync()
-    //{
-        
-
-    //    var movies = await _dbContext.Movies.ToListAsync();
-
-    //    foreach (var movie in movies)
-    //    {
-    //        var tmdbMovie = await GetMovieDetailsAsync(movie.Id);
-    //        if (tmdbMovie != null && tmdbMovie.ImageUrl != null)
-    //        {
-    //            movie.ImageUrl = tmdbMovie.ImageUrl;
-    //        }
-    //    }
-
-    //    await _dbContext.SaveChangesAsync();
-    //}
 
 }
