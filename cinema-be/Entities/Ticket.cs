@@ -8,7 +8,6 @@ namespace cinema_be.Entities
     {
         [Key]
         public int Id { get; set; }
-        [Required, Range(0.01, double.MaxValue, ErrorMessage = "Price must be greater than 0.")]
         public decimal Price { get; set; }
         [Required]
         public DateTime BookingTime { get; set; }
@@ -16,8 +15,13 @@ namespace cinema_be.Entities
         public int UserId { get; set; }
         [Required, ForeignKey(nameof(Session))]
         public int SessionId { get; set; }
-        [Required]
         public int Seat { get; set; }
+<<<<<<< HEAD
+        public int Row { get; set; }
+
+        public int Col { get; set; }
+=======
+>>>>>>> 48acea7b6042a4254e0b5e90058fadf2586579ff
         public User User { get; set; }
         public Session Session { get; set; }
     }
