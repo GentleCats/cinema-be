@@ -12,8 +12,11 @@ namespace cinema_be.Entities
         public int MovieId { get; set; }
         [ForeignKey("Hall")]
         public int HallId { get; set; }
+        [Required]
         public TimeSpan StartTime { get; set; }
+        [Required]
         public TimeSpan EndTime { get; set; }
+        [Required, DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         public Movie Movie { get; set; }
