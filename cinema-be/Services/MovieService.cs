@@ -2,6 +2,7 @@
 using cinema_be.Interfaces;
 using cinema_be.Models.DTOs;
 using AutoMapper;
+using cinema_be.Models.DTO;
 
 namespace cinema_be.Services
 {
@@ -55,5 +56,21 @@ namespace cinema_be.Services
             movieRepo.Update(movie);
             movieRepo.Save();
         }
+        public void UpdateMovie(int id, UpdateMovieDto movieDto)
+        {
+            var existingMovie = GetMovieById(id);
+            if (existingMovie == null)
+            {
+                Console.WriteLine("Movie not found.");
+                return;
+            }
+
+            _mapper.Map(movieDto, existingMovie);
+
+            movieRepo.Update(existingMovie);
+            movieRepo.Save();
+            Console.WriteLine("Movie updated successfully.");
+        }
+
     }
 }
