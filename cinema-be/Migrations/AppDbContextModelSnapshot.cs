@@ -125,45 +125,33 @@ namespace cinema_be.Migrations
                     b.Property<int>("Capacity")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Cols")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Rows")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Halls");
+                    b.ToTable("Halls", (string)null);
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             Capacity = 302,
-                            Cols = 22,
-                            Name = "Альфа",
-                            Rows = 14
+                            Name = "Альфа"
                         },
                         new
                         {
                             Id = 2,
                             Capacity = 377,
-                            Cols = 21,
-                            Name = "Парадиз",
-                            Rows = 18
+                            Name = "Парадиз"
                         },
                         new
                         {
                             Id = 3,
                             Capacity = 346,
-                            Cols = 23,
-                            Name = "Арена",
-                            Rows = 15
+                            Name = "Арена"
                         });
                 });
 
@@ -220,7 +208,7 @@ namespace cinema_be.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movies", (string)null);
                 });
 
             modelBuilder.Entity("cinema_be.Entities.Role", b =>
@@ -277,7 +265,7 @@ namespace cinema_be.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("Sessions");
+                    b.ToTable("Sessions", (string)null);
 
                     b.HasData(
                         new
@@ -372,17 +360,11 @@ namespace cinema_be.Migrations
                     b.Property<DateTime>("BookingTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Col")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("HallId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("Row")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Seat")
                         .HasColumnType("INTEGER");
@@ -401,7 +383,7 @@ namespace cinema_be.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Tickets");
+                    b.ToTable("Tickets", (string)null);
                 });
 
             modelBuilder.Entity("cinema_be.Entities.User", b =>
