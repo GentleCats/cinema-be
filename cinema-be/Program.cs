@@ -43,6 +43,7 @@ namespace cinema_be
             builder.Services.AddControllers();
             builder.Services.AddHttpClient<TmdbService>();
 
+
             builder.Services.AddScoped<IMovieService, MovieService>();
             builder.Services.AddScoped<ITMDBService, TmdbService>();
             builder.Services.AddScoped<ISessionService, SessionService>();
@@ -55,6 +56,7 @@ namespace cinema_be
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 
             var jwtSettings = builder.Configuration.GetSection("JwtSettings");
             var secretKey = jwtSettings.GetValue<string>("TokenKey");

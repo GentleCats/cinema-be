@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using cinema_be.Models.DTOs;
+using cinema_be.Models.DTO;
 
 namespace cinema_be.Controllers
 {
@@ -51,5 +52,17 @@ namespace cinema_be.Controllers
             var movie = await _tmdbService.GetMovieDetailsAsync(movieId);
             return Ok(movie);
         }
+        [HttpPut("update/{id}")]
+        public IActionResult UpdateMovie(int id, [FromBody] UpdateMovieDto movieDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _movieService.UpdateMovie(id, movieDto);
+            return Ok("Movie updated successfully.");
+        }
+
     }
 }
