@@ -1,3 +1,3 @@
 
 @cinema_be_HostAddress = http://localhost:5092
-GET {{cinema_be_HostAddress}}/api/movie/get-by-id/{id}
+GET {{cinema_be_HostAddress}}/api/movie/get-by-id/{tmdbId}
