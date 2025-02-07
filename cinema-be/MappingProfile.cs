@@ -8,5 +8,6 @@ public class MappingProfile : Profile
     {
       CreateMap<CreateMovieDto, Movie>();
       CreateMap<CreateSessionDto, Session>();
+      CreateMap<CreateTicketDto, Ticket>();
     }
 }

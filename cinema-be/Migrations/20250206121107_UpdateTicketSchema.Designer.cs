@@ -11,8 +11,8 @@ using cinema_be;
 namespace cinema_be.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250205165916_HallTicketSeatField")]
-    partial class HallTicketSeatField
+    [Migration("20250206121107_UpdateTicketSchema")]
+    partial class UpdateTicketSchema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -128,16 +128,10 @@ namespace cinema_be.Migrations
                     b.Property<int>("Capacity")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Cols")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("Rows")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -148,25 +142,19 @@ namespace cinema_be.Migrations
                         {
                             Id = 1,
                             Capacity = 302,
-                            Cols = 22,
-                            Name = "Альфа",
-                            Rows = 14
+                            Name = "Альфа"
                         },
                         new
                         {
                             Id = 2,
                             Capacity = 377,
-                            Cols = 21,
-                            Name = "Парадиз",
-                            Rows = 18
+                            Name = "Парадиз"
                         },
                         new
                         {
                             Id = 3,
                             Capacity = 346,
-                            Cols = 23,
-                            Name = "Арена",
-                            Rows = 15
+                            Name = "Арена"
                         });
                 });
 
@@ -375,17 +363,11 @@ namespace cinema_be.Migrations
                     b.Property<DateTime>("BookingTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Col")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("HallId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("Row")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Seat")
                         .HasColumnType("INTEGER");
