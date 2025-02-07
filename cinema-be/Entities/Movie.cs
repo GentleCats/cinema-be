@@ -7,6 +7,8 @@ namespace cinema_be.Entities
     {
         [Key]
         public int Id { get; set; }
+        [Required]
+        public int TmdbId { get; set; }
 
         [Required, MaxLength(100)]
         public string Title { get; set; }

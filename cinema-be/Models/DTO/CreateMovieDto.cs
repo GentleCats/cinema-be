@@ -2,6 +2,7 @@ namespace cinema_be.Models.DTOs
 {
     public class CreateMovieDto
     {
+        public int TmdbId {  get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public TimeSpan Duration { get; set; }
