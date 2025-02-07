@@ -42,7 +42,7 @@ namespace cinema_be.Services
         public Movie? GetMovieById(int id)
         {
             if (id < 0) return null;
-            var movie = movieRepo.Get(filter: b => b.Id == id).FirstOrDefault();
+            var movie = movieRepo.Get(filter: b => b.TmdbId == id).FirstOrDefault();
             return movie;
         }
 

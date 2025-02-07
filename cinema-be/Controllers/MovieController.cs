@@ -31,10 +31,10 @@ namespace cinema_be.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet("get-by-id/{id}")]
-        public ActionResult GetById(int id)
+        [HttpGet("get-by-id/{tmdbId}")]
+        public ActionResult GetById(int tmdbId)
         {
-            var movies = _movieService.GetMovieById(id);
+            var movies = _movieService.GetMovieById(tmdbId);
             return Ok(movies);
         }
 
