@@ -7,10 +7,11 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-      CreateMap<CreateMovieDto, Movie>();
-      CreateMap<CreateSessionDto, Session>();
-      CreateMap<CreateTicketDto, Ticket>();
-      CreateMap<UpdateMovieDto, Movie>()
+        CreateMap<CreateHallDto,Hall>();
+        CreateMap<CreateMovieDto, Movie>();
+        CreateMap<CreateSessionDto, Session>();
+        CreateMap<CreateTicketDto, Ticket>();
+        CreateMap<UpdateMovieDto, Movie>()
           .ForMember(dest => dest.Id, opt => opt.Ignore());
     }
 }
