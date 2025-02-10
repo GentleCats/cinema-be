@@ -1,5 +1,6 @@
 @cinema_be_HostAddress = http://localhost:5092
-POST {{cinema_be_HostAddress}}/api/Account/login/
+POST http://localhost:5092/api/Account/login
+Content-Type: application/json
 
 {
     "username": "testUser",
