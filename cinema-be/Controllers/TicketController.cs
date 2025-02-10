@@ -1,7 +1,9 @@
 ﻿using cinema_be.Entities;
 using cinema_be.Interfaces;
 using cinema_be.Models.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace cinema_be.Controllers
 {
@@ -33,6 +35,7 @@ namespace cinema_be.Controllers
             return Ok(ticket);
         }
 
+        [Authorize]
         [HttpPost("create")]
         public ActionResult Create([FromBody] CreateTicketDto ticketDto)
         {
@@ -44,7 +47,8 @@ namespace cinema_be.Controllers
                     errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
                 });
             }
-
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            ticketDto.UserId = Int32.Parse(userId);
             _ticketService.Create(ticketDto);
             return CreatedAtAction(nameof(GetById), new { id = _ticketService.GetTickets().Last().Id }, ticketDto);
         }
