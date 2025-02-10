@@ -6,6 +6,9 @@ namespace cinema_be.Validators
     public class SessionValidator : AbstractValidator<Session>
     {
         public SessionValidator() {
+            RuleFor(t => t.Price)
+               .NotEmpty().WithMessage("Ціна є обов'язковою")
+               .GreaterThan(0).WithMessage("Ціна має бути більше 0");
             RuleFor(s => s.MovieId)
             .NotEmpty().WithMessage("MovieId є обов'язковим")
             .GreaterThan(0).WithMessage("MovieId має бути більше 0");

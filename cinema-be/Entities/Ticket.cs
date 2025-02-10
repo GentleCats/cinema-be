@@ -8,7 +8,7 @@ namespace cinema_be.Entities
     {
         [Key]
         public int Id { get; set; }
-        public decimal Price { get; set; }
+        //public decimal Price { get; set; }
         [Required]
         public DateTime BookingTime { get; set; }
         [Required, ForeignKey(nameof(User))]
