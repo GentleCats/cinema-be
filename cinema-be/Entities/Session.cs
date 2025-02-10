@@ -12,6 +12,7 @@ namespace cinema_be.Entities
         public int MovieId { get; set; }
         [ForeignKey("Hall")]
         public int HallId { get; set; }
+        public decimal Price { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
         public DateTime Date { get; set; }

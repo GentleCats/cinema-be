@@ -38,7 +38,8 @@ namespace cinema_be.Helpers
                         HallId = 1,
                         StartTime = new TimeSpan(19, 55, 0),
                         EndTime = new TimeSpan(21, 45, 0),
-                        Date = new DateTime(2025, 1, 18),  
+                        Date = new DateTime(2025, 1, 18),
+                        Price = 150,
                     },
                     new Session()
                     {
@@ -47,7 +48,8 @@ namespace cinema_be.Helpers
                         HallId = 1,
                         StartTime = new TimeSpan(19, 55, 0),
                         EndTime = new TimeSpan(21, 45, 0),
-                        Date = new DateTime(2025, 1, 19),  
+                        Date = new DateTime(2025, 1, 19),
+                        Price = 150,
                     },
                     new Session()
                     {
@@ -56,7 +58,8 @@ namespace cinema_be.Helpers
                         HallId = 1,
                         StartTime = new TimeSpan(19, 55, 0),
                         EndTime = new TimeSpan(21, 45, 0),
-                        Date = new DateTime(2025, 1, 20),  
+                        Date = new DateTime(2025, 1, 20),
+                        Price = 170,
                     },
                     new Session()
                     {
@@ -65,7 +68,8 @@ namespace cinema_be.Helpers
                         HallId = 2,
                         StartTime = new TimeSpan(10, 10, 0),
                         EndTime = new TimeSpan(12, 00, 0),
-                        Date = new DateTime(2025, 1, 18),  
+                        Date = new DateTime(2025, 1, 18),
+                        Price = 150,
                     },
                     new Session()
                     {
@@ -74,7 +78,8 @@ namespace cinema_be.Helpers
                         HallId = 2,
                         StartTime = new TimeSpan(16, 20, 0),
                         EndTime = new TimeSpan(18, 10, 0),
-                        Date = new DateTime(2025, 1, 18),  
+                        Date = new DateTime(2025, 1, 18),
+                        Price = 180,
                     },
                     new Session()
                     {
@@ -83,7 +88,8 @@ namespace cinema_be.Helpers
                         HallId = 2,
                         StartTime = new TimeSpan(10, 10, 0),
                         EndTime = new TimeSpan(12, 00, 0),
-                        Date = new DateTime(2025, 1, 19),  
+                        Date = new DateTime(2025, 1, 19),
+                        Price = 180,
                     },
                     new Session()
                     {
@@ -92,7 +98,8 @@ namespace cinema_be.Helpers
                         HallId = 2,
                         StartTime = new TimeSpan(16, 20, 0),
                         EndTime = new TimeSpan(18, 10, 0),
-                        Date = new DateTime(2025, 1, 19),  
+                        Date = new DateTime(2025, 1, 19),
+                        Price = 190,
                     },
                     new Session()
                     {
@@ -101,7 +108,8 @@ namespace cinema_be.Helpers
                         HallId = 3,
                         StartTime = new TimeSpan(20, 10, 0),
                         EndTime = new TimeSpan(22, 10, 0),
-                        Date = new DateTime(2025, 1, 18),  
+                        Date = new DateTime(2025, 1, 18),
+                        Price = 160,
                     },
                     new Session()
                     {
@@ -110,7 +118,8 @@ namespace cinema_be.Helpers
                         HallId = 3,
                         StartTime = new TimeSpan(20, 10, 0),
                         EndTime = new TimeSpan(22, 10, 0),
-                        Date = new DateTime(2025, 1, 19),  
+                        Date = new DateTime(2025, 1, 19),
+                        Price = 170,
                     },
                 }
             );

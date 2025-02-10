@@ -7,9 +7,7 @@ namespace cinema_be.Validators
     {
         public TicketValidator()
         {
-            RuleFor(t => t.Price)
-               .NotEmpty().WithMessage("Ціна є обов'язковою")
-               .GreaterThan(0).WithMessage("Ціна має бути більше 0");
+           
 
             RuleFor(t => t.BookingTime)
                 .NotEmpty().WithMessage("Час бронювання є обов'язковим");

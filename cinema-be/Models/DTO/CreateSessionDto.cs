@@ -7,5 +7,6 @@ namespace cinema_be.Models.DTOs
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
         public DateTime Date { get; set; }
+        public decimal Price { get; set; }
     }
 }
