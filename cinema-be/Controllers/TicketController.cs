@@ -47,10 +47,17 @@ namespace cinema_be.Controllers
                     errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
                 });
             }
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            ticketDto.UserId = Int32.Parse(userId);
-            _ticketService.Create(ticketDto);
-            return CreatedAtAction(nameof(GetById), new { id = _ticketService.GetTickets().Last().Id }, ticketDto);
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                ticketDto.UserId = int.Parse(userId);
+                _ticketService.Create(ticketDto);
+                return CreatedAtAction(nameof(GetById), new { id = _ticketService.GetTickets().Last().Id }, ticketDto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
         }
 
         [HttpDelete("delete/{id}")]

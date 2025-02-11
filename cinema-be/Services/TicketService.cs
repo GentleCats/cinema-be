@@ -33,6 +33,17 @@ namespace cinema_be.Services
         {
             try
             {
+                var isTaken = _ticketRepo.Get(filter: t =>
+                   t.SessionId == ticketDto.SessionId &&
+                   t.Row == ticketDto.Row &&
+                   t.Col == ticketDto.Col &&
+                   t.Seat == ticketDto.Seat
+               ).Any();
+
+                if (isTaken)
+                {
+                    throw new Exception("This seat is already booked for this session.");
+                }
                 var ticket = _mapper.Map<Ticket>(ticketDto);
                 ticket.BookingTime = DateTime.UtcNow;
                 _ticketRepo.Insert(ticket);
