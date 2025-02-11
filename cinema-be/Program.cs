@@ -40,11 +40,8 @@ namespace cinema_be
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
-            builder.Services.AddControllers()
-                .AddJsonOptions(options =>
-                {
-                    options.JsonSerializerOptions.ReferenceHandler = null;
-                });
+            builder.Services.AddControllers();
+
 
             builder.Services.AddHttpClient<TmdbService>();
 

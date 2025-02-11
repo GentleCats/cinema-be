@@ -15,5 +15,6 @@
         public decimal Rating { get; set; }
         public string TrailerUrl { get; set; }
         public string ImageUrl { get; set; }
+        public List<SessionDto> Sessions { get; set; } = new();
     }
 }
