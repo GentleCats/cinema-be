@@ -63,6 +63,15 @@ namespace cinema_be.Controllers
             _movieService.UpdateMovie(id, movieDto);
             return Ok("Movie updated successfully.");
         }
+        [AllowAnonymous]
+        [HttpGet("get-sorted")]
+        public ActionResult GetSortedMovies([FromQuery] string sortType)
+        {
+            var movies = _movieService.GetSortedMovies(sortType);
+            Console.WriteLine($"Movies count: {movies.Count}");
+            return Ok(movies);
+        }
+
 
     }
 }

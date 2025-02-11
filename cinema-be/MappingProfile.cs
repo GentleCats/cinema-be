@@ -11,6 +11,7 @@ public class MappingProfile : Profile
         CreateMap<CreateMovieDto, Movie>();
         CreateMap<CreateSessionDto, Session>();
         CreateMap<CreateTicketDto, Ticket>();
+        CreateMap<Movie, MovieDto>();
         CreateMap<UpdateMovieDto, Movie>()
           .ForMember(dest => dest.Id, opt => opt.Ignore());
     }

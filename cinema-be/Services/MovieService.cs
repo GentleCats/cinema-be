@@ -46,10 +46,16 @@ namespace cinema_be.Services
             return movie;
         }
 
-        public List<Movie> GetMovies()
+        //public List<Movie> GetMovies()
+        //{
+        //    return movieRepo.Get().ToList();
+        //}
+        public List<MovieDto> GetMovies()
         {
-            return movieRepo.Get().ToList();
+            var movies = movieRepo.Get().ToList();
+            return _mapper.Map<List<MovieDto>>(movies);
         }
+
 
         public void Update(Movie movie)
         {
@@ -71,6 +77,34 @@ namespace cinema_be.Services
             movieRepo.Save();
             Console.WriteLine("Movie updated successfully.");
         }
+        public List<Movie> GetSortedMovies(string sortType)
+        {
+            if (string.IsNullOrWhiteSpace(sortType))
+                return new List<Movie>();
+            var query = movieRepo.Get(includeProperties: "Sessions");
+
+            switch (sortType.ToLower())
+            {
+                case "date":
+                    query = query.OrderBy(m => m.ReleaseDate);
+                    break;
+                case "genre":
+                    query = query.OrderBy(m => m.Genre);
+                    break;
+                case "duration":
+                    query = query.OrderBy(m => m.Duration);
+                    break;
+                case "sessions":
+                    query = query.OrderBy(m => m.Sessions.Min(s => s.StartTime)); // Сортування за найближчою сесією
+                    break;
+                default:
+                    query = query.OrderBy(m => m.Title); // За замовчуванням сортуємо за назвою
+                    break;
+            }
+
+            return query.ToList();
+        }
+
 
     }
 }

@@ -6,12 +6,14 @@ namespace cinema_be.Interfaces
 {
     public interface IMovieService
     {
-        List<Movie> GetMovies();
+        //List<Movie> GetMovies();
+        public List<MovieDto> GetMovies();
 
         Movie? GetMovieById(int id);
         void Create(CreateMovieDto movie);
         void Update(Movie movie);
         void Delete(int id);
         void UpdateMovie(int id, UpdateMovieDto movieDto);
+        public List<Movie> GetSortedMovies(string sortType);
     }
 }
