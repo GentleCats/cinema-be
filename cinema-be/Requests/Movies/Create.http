@@ -1,4 +1,4 @@
-@cinema_be_HostAddress = https://localhost:7046
+@cinema_be_HostAddress = https://localhost:5092
 POST {{cinema_be_HostAddress}}/api/Movie/create/
 Content-Type: application/json
 

@@ -35,6 +35,13 @@ namespace cinema_be.Controllers
             return Ok(ticket);
         }
 
+        [HttpGet("get-by-sessionId/{id}")]
+        public ActionResult<IEnumerable<Ticket>> GetTicketsBySessionId(int id)
+        {
+            var tickets = _ticketService.GetTicketsBySessionId(id);
+            return Ok(tickets);
+        }
+
         [Authorize]
         [HttpPost("create")]
         public ActionResult Create([FromBody] CreateTicketDto ticketDto)
