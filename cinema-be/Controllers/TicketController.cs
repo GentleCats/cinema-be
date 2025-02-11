@@ -54,10 +54,17 @@ namespace cinema_be.Controllers
                     errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)
                 });
             }
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            ticketDto.UserId = Int32.Parse(userId);
-            _ticketService.Create(ticketDto);
-            return CreatedAtAction(nameof(GetById), new { id = _ticketService.GetTickets().Last().Id }, ticketDto);
+            try
+            {
+                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                ticketDto.UserId = int.Parse(userId);
+                _ticketService.Create(ticketDto);
+                return CreatedAtAction(nameof(GetById), new { id = _ticketService.GetTickets().Last().Id }, ticketDto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
         }
 
         [HttpDelete("delete/{id}")]
@@ -72,5 +79,19 @@ namespace cinema_be.Controllers
             _ticketService.Delete(id);
             return NoContent();
         }
+        [Authorize]
+        [HttpGet("my-tickets")]
+        public ActionResult<IEnumerable<Ticket>> GetUserTickets()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized(new { success = false, message = "User ID not found in token" });
+            }
+
+            var tickets = _ticketService.GetUserTickets(int.Parse(userId));
+            return Ok(tickets);
+        }
+
     }
 }
