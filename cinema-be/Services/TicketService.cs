@@ -29,6 +29,11 @@ namespace cinema_be.Services
             return _ticketRepo.Get(filter: t => t.Id == id).FirstOrDefault();
         }
 
+        public List<Ticket> GetTicketsBySessionId(int id)
+        {
+            return _ticketRepo.Get(filter: t => t.SessionId == id).ToList();
+        }
+
         public void Create(CreateTicketDto ticketDto)
         {
             try
