@@ -53,5 +53,10 @@ namespace cinema_be.Services
             _ticketRepo.Delete(ticket);
             _ticketRepo.Save();
         }
+        public IEnumerable<Ticket> GetUserTickets(int userId)
+        {
+            return _ticketRepo.Get(filter: t => t.UserId == userId).ToList();
+        }
+
     }
 }

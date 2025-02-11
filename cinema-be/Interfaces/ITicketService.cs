@@ -8,5 +8,7 @@ namespace cinema_be.Interfaces
         Ticket GetTicketById(int id);
         void Create(CreateTicketDto ticketDto);
         void Delete(int id);
+        IEnumerable<Ticket> GetUserTickets(int userId);
+
     }
 }

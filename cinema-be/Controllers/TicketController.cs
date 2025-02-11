@@ -65,5 +65,19 @@ namespace cinema_be.Controllers
             _ticketService.Delete(id);
             return NoContent();
         }
+        [Authorize]
+        [HttpGet("my-tickets")]
+        public ActionResult<IEnumerable<Ticket>> GetUserTickets()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized(new { success = false, message = "User ID not found in token" });
+            }
+
+            var tickets = _ticketService.GetUserTickets(int.Parse(userId));
+            return Ok(tickets);
+        }
+
     }
 }
