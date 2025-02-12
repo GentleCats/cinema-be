@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using cinema_be.Models.DTOs;
+using cinema_be.Validators;
 
 namespace cinema_be.Controllers
 {
@@ -20,22 +21,31 @@ namespace cinema_be.Controllers
 
     [AllowAnonymous]
     [HttpPost]
-    public ActionResult Create([FromBody] CreateSessionDto session)
-    {
-      if (!ModelState.IsValid)
-      {
+        public ActionResult Create([FromBody] CreateSessionDto session)
+        {
+            var validator = new CreateSessionDtoValidator();
+            var validationResult = validator.Validate(session);
 
-      var errors = ModelState.Values
-        .SelectMany(v => v.Errors)
-        .Select(e => e.ErrorMessage)
-        .ToList();
-      return BadRequest(new { success = false, errors });
-      }
-      _sessionService.Create(session);
-      return NoContent();
-    }
+            if (!validationResult.IsValid)
+            {
+                var errors = validationResult.Errors.Select(e => e.ErrorMessage).ToList();
+                return BadRequest(new { success = false, errors });
+            }
 
-    [AllowAnonymous]
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .ToList();
+                return BadRequest(new { success = false, errors });
+            }
+
+            _sessionService.Create(session);
+            return NoContent();
+        }
+
+        [AllowAnonymous]
     [HttpGet]
     public ActionResult GetAll()
     {
