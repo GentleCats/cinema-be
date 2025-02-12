@@ -44,7 +44,6 @@ namespace cinema_be.Entities
         public string? TrailerUrl { get; set; }
 
         public string? ImageUrl { get; set; }
-        [JsonIgnore]
         public ICollection<Session> Sessions { get; set; }
     }
 

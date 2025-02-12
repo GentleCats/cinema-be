@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using cinema_be.Models.DTOs;
 using cinema_be.Models.DTO;
+using Newtonsoft.Json;
 
 namespace cinema_be.Controllers
 {
@@ -15,20 +16,29 @@ namespace cinema_be.Controllers
         private readonly IMovieService _movieService;
         private readonly ITMDBService _tmdbService;
 
+
         public MovieController(IMovieService movieService,ITMDBService tmdbService)
         {
             _movieService = movieService;
             _tmdbService = tmdbService;
         }
 
-        
+
         [AllowAnonymous]
         [HttpGet("get-all")]
         public ActionResult GetAll()
         {
             var movies = _movieService.GetMovies();
             return Ok(movies);
+
+            //var movies = _movieService.GetMovies();
+            //var json = JsonConvert.SerializeObject(movies, new JsonSerializerSettings
+            //{
+            //    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            //});
+            //return Ok(json);
         }
+
 
         [AllowAnonymous]
         [HttpGet("get-by-id/{tmdbId}")]
@@ -41,14 +51,16 @@ namespace cinema_be.Controllers
         
         [AllowAnonymous]
         [HttpGet("get-popular")]
-        public async Task<ActionResult> GetPopular(int page){
+        public async Task<ActionResult> GetPopular(int page)
+        {
             var movies = await _tmdbService.GetPopularMoviesAsync(page);
             return Ok(movies);
         }
 
         [AllowAnonymous]
         [HttpGet("get-by-tmdb-id")]
-        public async Task<ActionResult> GetMovieDetailsAsync(int movieId){
+        public async Task<ActionResult> GetMovieDetailsAsync(int movieId)
+        {
             var movie = await _tmdbService.GetMovieDetailsAsync(movieId);
             return Ok(movie);
         }

@@ -14,5 +14,9 @@ public class MappingProfile : Profile
         CreateMap<Movie, MovieDto>();
         CreateMap<UpdateMovieDto, Movie>()
           .ForMember(dest => dest.Id, opt => opt.Ignore());
+        CreateMap<Movie, MovieDto>()
+            .ForMember(dest => dest.Sessions, opt => opt.MapFrom(src => src.Sessions));
+
+        CreateMap<Session, SessionDto>();
     }
 }
