@@ -1,20 +1,15 @@
-﻿using cinema_be.Entities;
+﻿using cinema_be.Models.DTOs;
 using FluentValidation;
 
 namespace cinema_be.Validators
 {
-    public class TicketValidator : AbstractValidator<Ticket>
+    public class CreateTicketDtoValidator : AbstractValidator<CreateTicketDto>
     {
-        public TicketValidator()
+        public CreateTicketDtoValidator()
         {
-           
-
-            RuleFor(t => t.BookingTime)
-                .NotEmpty().WithMessage("Час бронювання є обов'язковим");
-
-            RuleFor(t => t.UserId)
-                .NotEmpty().WithMessage("UserId є обов'язковим")
-                .GreaterThan(0).WithMessage("UserId має бути більше 0");
+            //RuleFor(t => t.UserId)
+            //    .NotEmpty().WithMessage("UserId є обов'язковим")
+            //    .GreaterThan(0).WithMessage("UserId має бути більше 0");
 
             RuleFor(t => t.SessionId)
                 .NotEmpty().WithMessage("SessionId є обов'язковим")
