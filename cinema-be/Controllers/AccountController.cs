@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using cinema_be.Models.Account;
 using cinema_be.Services;
 using cinema_be.Interfaces;
+using System.Security.Claims;
 
 namespace cinema_be.Controllers
 {
@@ -31,6 +32,37 @@ namespace cinema_be.Controllers
             this.config = config;
             this.tokenService = tokenService;
 
+        }
+
+        [Authorize]
+        [HttpGet("get-me")]
+        public async Task<ActionResult> GetMe()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized(new { success = false, message = "User ID not found in token" });
+            }
+
+            // Шукаємо користувача за userId
+            var user = await userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound(new { success = false, message = "User not found" });
+            }
+
+            // Повертаємо дані користувача
+            return Ok(new
+            {
+                success = true,
+                user = new
+                {
+                    id = user.Id,
+                    username = user.UserName,
+                    email = user.Email
+                }
+            });
         }
 
         [AllowAnonymous]

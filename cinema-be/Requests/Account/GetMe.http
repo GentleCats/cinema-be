@@ -1,12 +1,4 @@
 
 @cinema_be_HostAddress = http://localhost:5092
-POST http://localhost:5092/api/Ticket/create
-Content-Type: application/json
+GET http://localhost:5092/api/Account/get-me
 Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJ0ZXN0RW1haWxAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6InRlc3RVc2VyIiwiZXhwIjoxNzM5ODE5NzE2fQ.pqFG3t3GizzgBUyimcnIQVzZjRP-00E42fSzjf0Nfi2GOHhu_BqB0e4yXPYP3BVylGhZd4SHKce1yEMG_OBmyQQSaaWN6PcNAFxvFpoHRDwASFVkIDN4Y2JN98yg22xcMYVflJ0DcevozcH3xspRWOo4sqsfCq1iiFprtTMfiZGQ
-
-{
-  "sessionId": 0,
-  "userId": 0,
-  "seat": 0
-}
-
