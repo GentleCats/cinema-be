@@ -77,9 +77,9 @@ namespace cinema_be.Controllers
         }
         [AllowAnonymous]
         [HttpGet("get-sorted")]
-        public ActionResult GetSortedMovies([FromQuery] string sortType)
+        public ActionResult GetSortedMovies([FromQuery] string sortType, [FromQuery] string genre)
         {
-            var movies = _movieService.GetSortedMovies(sortType);
+            var movies = _movieService.GetSortedMovies(sortType, genre);
             Console.WriteLine($"Movies count: {movies.Count}");
             return Ok(movies);
         }

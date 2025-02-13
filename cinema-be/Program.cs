@@ -8,6 +8,10 @@ using cinema_be.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Text;
+using cinema_be.Validators;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 
 namespace cinema_be
 {
@@ -19,7 +23,7 @@ namespace cinema_be
             builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             builder.Services.Configure<TmdbSettings>(builder.Configuration.GetSection("TmdbSettings"));
-            // Add services to the container.
+            
             builder.Services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDB"));
@@ -39,6 +43,25 @@ namespace cinema_be
             builder.Services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
+
+            builder.Services.AddValidatorsFromAssemblyContaining<CreateHallDtoValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<CreateSessionDtoValidator>();
+            builder.Services.AddValidatorsFromAssemblyContaining<CreateTicketDtoValidator>();
+
+            builder.Services.AddFluentValidationAutoValidation();
+            builder.Services.AddFluentValidationClientsideAdapters();
+            builder.Services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = context =>
+                {
+                    var errors = context.ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage)
+                        .ToList();
+
+                    return new BadRequestObjectResult(new { success = false, errors });
+                };
+            });
 
             builder.Services.AddControllers();
 

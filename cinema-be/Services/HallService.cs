@@ -5,6 +5,7 @@ using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using cinema_be.Validators;
 
 namespace cinema_be.Services
 {
@@ -21,6 +22,13 @@ namespace cinema_be.Services
 
         public void Create(CreateHallDto createHallDto)
         {
+            var validator = new CreateHallDtoValidator();
+            var validationResult = validator.Validate(createHallDto);
+
+            if (!validationResult.IsValid)
+            {
+                throw new ArgumentException(string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage)));
+            }
             try
             {
                 var hall = _mapper.Map<Hall>(createHallDto);

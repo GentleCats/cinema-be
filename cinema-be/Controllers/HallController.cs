@@ -44,9 +44,16 @@ namespace cinema_be.Controllers
                     .ToList();
                 return BadRequest(new { success = false, errors });
             }
-
-            _hallService.Create(hallDto);
-            return NoContent();
+            try
+            {
+                _hallService.Create(hallDto);
+                return NoContent();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+           
         }
 
         //[Authorize(Roles = "Admin")]

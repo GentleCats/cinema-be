@@ -14,6 +14,6 @@ namespace cinema_be.Interfaces
         void Update(Movie movie);
         void Delete(int id);
         void UpdateMovie(int id, UpdateMovieDto movieDto);
-        public List<MovieDto> GetSortedMovies(string sortType);
+        public List<MovieDto> GetSortedMovies(string sortType, string genre);
     }
 }

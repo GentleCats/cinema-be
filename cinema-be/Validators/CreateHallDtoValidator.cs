@@ -1,14 +1,16 @@
-﻿using cinema_be.Entities;
+﻿using cinema_be.Models.DTOs;
 using FluentValidation;
 
 namespace cinema_be.Validators
 {
-    public class HallValidator:AbstractValidator<Hall>
+    public class CreateHallDtoValidator : AbstractValidator<CreateHallDto>
     {
-        public HallValidator() {
+        public CreateHallDtoValidator()
+        {
             RuleFor(h => h.Name)
-               .NotEmpty().WithMessage("Назва є обов'язковою")
-               .MaximumLength(100).WithMessage("Назва не повинна перевищувати 100 символів.");
+                .NotEmpty().WithMessage("Назва є обов'язковою")
+                .MaximumLength(100).WithMessage("Назва не повинна перевищувати 100 символів.");
+
             RuleFor(h => h.Capacity)
                 .NotEmpty().WithMessage("Місткість є обов'язковою")
                 .GreaterThan(0).WithMessage("Місткість має бути більше 0.");

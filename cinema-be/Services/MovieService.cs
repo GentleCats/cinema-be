@@ -73,20 +73,23 @@ namespace cinema_be.Services
             movieRepo.Save();
             Console.WriteLine("Movie updated successfully.");
         }
-        public List<MovieDto> GetSortedMovies(string sortType)
+        public List<MovieDto> GetSortedMovies(string sortType, string genre)
         {
-            if (string.IsNullOrWhiteSpace(sortType))
-                return new List<MovieDto>();
+            //if (string.IsNullOrWhiteSpace(sortType))
+            //    return new List<MovieDto>();
 
             var query = movieRepo.Get(includeProperties: "Sessions");
+
+            if (!string.IsNullOrWhiteSpace(genre))
+            {
+                var genreList = genre.Split(',').Select(g => g.Trim()).ToList(); // розділяємо жанри і прибираємо пробіли
+                query = query.Where(m => genreList.Any(g => m.Genre.Contains(g, StringComparison.OrdinalIgnoreCase)));
+            }
 
             switch (sortType.ToLower())
             {
                 case "date":
                     query = query.OrderBy(m => m.ReleaseDate);
-                    break;
-                case "genre":
-                    query = query.OrderBy(m => m.Genre);
                     break;
                 case "duration":
                     query = query.OrderBy(m => m.Duration);
