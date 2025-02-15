@@ -8,6 +8,9 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<CreateSessionDto, Session>();
+        CreateMap<Session, SessionDto>();
+
+        CreateMap<CreateTicketDto, Ticket>();
         CreateMap<CreateHallDto, Hall>();
         CreateMap<CreateMovieDto, Movie>()
             .ForMember(dest => dest.Cast, opt => opt.MapFrom(src => src.Cast));
