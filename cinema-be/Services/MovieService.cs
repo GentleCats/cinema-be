@@ -3,6 +3,9 @@ using cinema_be.Interfaces;
 using cinema_be.Models.DTOs;
 using AutoMapper;
 using cinema_be.Models.DTO;
+using Microsoft.EntityFrameworkCore;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace cinema_be.Services
 {
@@ -10,11 +13,13 @@ namespace cinema_be.Services
     {
         private readonly IRepository<Movie> movieRepo;
         private readonly IMapper _mapper;
+        private readonly HttpClient _httpClient;
 
-        public MovieService(IRepository<Movie> movieRepo, IMapper mapper)
+        public MovieService(IRepository<Movie> movieRepo, IMapper mapper, HttpClient httpClient)
         {
             this.movieRepo = movieRepo;
             _mapper = mapper;
+            _httpClient = httpClient;
         }
         public void Create(CreateMovieDto movieDto)
         {
@@ -108,7 +113,20 @@ namespace cinema_be.Services
             var movies = query.ToList();
             return _mapper.Map<List<MovieDto>>(movies);
         }
+        public class TmdbGenreResponse
+        {
+            public List<GenreDto> Genres { get; set; } = new List<GenreDto>();
+        }
+        public async Task<List<GenreDto>> GetGenresFromApi()
+        {
+            var apiKey = "afebafe01724d35440a9333c385ac134";
+            var url = $"https://api.themoviedb.org/3/genre/movie/list?api_key={apiKey}&language=en-US";
 
+            var response = await _httpClient.GetStringAsync(url);
+            var tmdbGenreResponse = JsonConvert.DeserializeObject<TmdbGenreResponse>(response);
+
+            return tmdbGenreResponse?.Genres ?? new List<GenreDto>();
+        }
 
 
     }

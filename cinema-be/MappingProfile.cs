@@ -24,6 +24,10 @@ public class MappingProfile : Profile
             .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name)); 
 
         CreateMap<Actor, ActorDto>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name)); 
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+
+        CreateMap<Session, SessionDto>();
+
+        CreateMap<CreateTicketDto, Ticket>();
     }
 }

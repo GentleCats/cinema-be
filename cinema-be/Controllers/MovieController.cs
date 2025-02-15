@@ -83,6 +83,14 @@ namespace cinema_be.Controllers
             Console.WriteLine($"Movies count: {movies.Count}");
             return Ok(movies);
         }
+        [AllowAnonymous]
+        [HttpGet("getGenres")]
+        public async Task<ActionResult<List<GenreDto>>> GetGenres()
+        {
+            var genres = await _movieService.GetGenresFromApi();
+            return Ok(genres);
+        }
+
 
 
     }
