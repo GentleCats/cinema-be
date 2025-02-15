@@ -16,5 +16,8 @@ namespace cinema_be.Interfaces
         void UpdateMovie(int id, UpdateMovieDto movieDto);
         public List<MovieDto> GetMyFilms(int userId);
         public List<MovieDto> GetSortedMovies(string sortType, string genre);
+        Task<List<GenreDto>> GetGenresFromApi();
+
+
     }
 }

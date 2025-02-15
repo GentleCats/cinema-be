@@ -3,6 +3,9 @@ using cinema_be.Interfaces;
 using cinema_be.Models.DTOs;
 using AutoMapper;
 using cinema_be.Models.DTO;
+using Microsoft.EntityFrameworkCore;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace cinema_be.Services
 {
@@ -10,15 +13,17 @@ namespace cinema_be.Services
     {
         private readonly IRepository<Movie> _movieRepo;
         private readonly IMapper _mapper;
+        private readonly HttpClient _httpClient;
         private readonly IRepository<Ticket> _ticketRepo;
         private readonly IRepository<Session> _sessionRepo;
 
-        public MovieService(IRepository<Movie> movieRepo,IRepository<Ticket> ticketRepo,IRepository<Session> sessionRepo, IMapper mapper)
+        public MovieService(IRepository<Movie> movieRepo,IRepository<Ticket> ticketRepo,IRepository<Session> sessionRepo, IMapper mapper,HttpClient httpClient)
         {
             _movieRepo = movieRepo;
             _ticketRepo = ticketRepo;
             _sessionRepo = sessionRepo;
             _mapper = mapper;
+            _httpClient = httpClient;
         }
         public List<MovieDto> GetMyFilms(int userId)
         {
@@ -165,7 +170,20 @@ namespace cinema_be.Services
             var movies = query.ToList();
             return _mapper.Map<List<MovieDto>>(movies);
         }
+        public class TmdbGenreResponse
+        {
+            public List<GenreDto> Genres { get; set; } = new List<GenreDto>();
+        }
+        public async Task<List<GenreDto>> GetGenresFromApi()
+        {
+            var apiKey = "afebafe01724d35440a9333c385ac134";
+            var url = $"https://api.themoviedb.org/3/genre/movie/list?api_key={apiKey}&language=en-US";
 
+            var response = await _httpClient.GetStringAsync(url);
+            var tmdbGenreResponse = JsonConvert.DeserializeObject<TmdbGenreResponse>(response);
+
+            return tmdbGenreResponse?.Genres ?? new List<GenreDto>();
+        }
 
 
     }
