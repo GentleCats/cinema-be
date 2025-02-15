@@ -7,26 +7,23 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        // Create mapping for Create DTOs
+        CreateMap<CreateSessionDto, Session>();
         CreateMap<CreateHallDto, Hall>();
         CreateMap<CreateMovieDto, Movie>()
-            .ForMember(dest => dest.Cast, opt => opt.MapFrom(src => src.Cast)); // Map Cast from DTO to Entity
+            .ForMember(dest => dest.Cast, opt => opt.MapFrom(src => src.Cast));
 
-        // Mapping for Update DTOs
         CreateMap<UpdateMovieDto, Movie>()
             .ForMember(dest => dest.Id, opt => opt.Ignore())
-            .ForMember(dest => dest.Cast, opt => opt.MapFrom(src => src.Cast)); // Handle Cast mapping
+            .ForMember(dest => dest.Cast, opt => opt.Ignore());
 
-        // Mapping between Movie and MovieDto
         CreateMap<Movie, MovieDto>()
-            .ForMember(dest => dest.Cast, opt => opt.MapFrom(src => src.Cast))  // Map Cast correctly
-            .ForMember(dest => dest.Sessions, opt => opt.MapFrom(src => src.Sessions));  // Map Sessions correctly
+            .ForMember(dest => dest.Cast, opt => opt.MapFrom(src => src.Cast))
+            .ForMember(dest => dest.Sessions, opt => opt.MapFrom(src => src.Sessions));
 
-        // Actor mappings
         CreateMap<ActorDto, Actor>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name)); // Map ActorDto to Actor (customize as needed)
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name)); 
 
         CreateMap<Actor, ActorDto>()
-            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name)); // Actor to ActorDto mapping
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name)); 
     }
 }

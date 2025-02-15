@@ -29,9 +29,6 @@ namespace cinema_be.Models.DTO
         [MaxLength(100)]
         public string? Director { get; set; }
 
-        [MaxLength(300)]
-        public List<Actor> Cast { get; set; }
-
         [Range(0, 10)]
         public decimal Rating { get; set; }
 
