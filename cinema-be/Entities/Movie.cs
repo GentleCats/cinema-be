@@ -35,8 +35,6 @@ namespace cinema_be.Entities
         [MaxLength(100)]
         public string? Director { get; set; }
 
-        [MaxLength(300)]
-        public string? Cast { get; set; }
 
         [Range(0, 10)]
         public decimal Rating { get; set; }
@@ -45,6 +43,8 @@ namespace cinema_be.Entities
 
         public string? ImageUrl { get; set; }
         public ICollection<Session> Sessions { get; set; }
+        public List<Actor> Cast { get; set; }
+
     }
 
 }

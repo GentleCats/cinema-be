@@ -52,7 +52,11 @@ namespace cinema_be.Models.Tmdb
 
     public class TmdbCast
     {
+        public int Id { get; set; }
         public string Name { get; set; }
+        public string Character { get; set; }
+        [JsonPropertyName("profile_path")]
+        public string PhotoUrl { get; set; }
     }
 
     public class TmdbVideos

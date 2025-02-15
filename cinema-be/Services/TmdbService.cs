@@ -93,7 +93,13 @@ public class TmdbService: ITMDBService
                 ReleaseDate = releaseDate ?? DateTime.MinValue,
                 EndDate = releaseDate.HasValue ? releaseDate.Value.AddMonths(6) : (DateTime?)null,
                 Director = detailedMovie.Credits?.Crew?.FirstOrDefault(c => c.Job == "Director")?.Name ?? "Unknown",
-                Cast = detailedMovie.Credits?.Cast != null ? string.Join(", ", detailedMovie.Credits.Cast.Take(5).Select(c => c.Name)) : "Unknown",
+                Cast = detailedMovie.Credits?.Cast?.Take(5).Select(c => new Actor
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Character = c.Character,
+                    PhotoUrl = $"https://image.tmdb.org/t/p/w500{c.PhotoUrl}"
+                }).ToList(),
                 Rating = detailedMovie.VoteAverage != 0 ? (decimal)detailedMovie.VoteAverage : 0,
                 TrailerUrl = detailedMovie.Videos?.Results?.FirstOrDefault(v => v.Type == "Trailer") != null
                     ? $"https://www.youtube.com/watch?v={detailedMovie.Videos.Results.First(v => v.Type == "Trailer").Key}"

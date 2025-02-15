@@ -12,6 +12,7 @@ namespace cinema_be
         public AppDbContext() : base() { }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Actor> Actors { get; set; }
         public DbSet<Hall> Halls { get; set; }
        // public DbSet<Booking> Bookings { get; set; }
         public DbSet<Session> Sessions { get; set; }
@@ -21,8 +22,12 @@ namespace cinema_be
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.SeedHall();
-            modelBuilder.SeedSession();
+            // modelBuilder.Entity<Movie>()
+            // .HasMany(m => m.Cast)
+            // .WithOne()
+            // .OnDelete(DeleteBehavior.Cascade);
+            // modelBuilder.SeedHall();
+            // modelBuilder.SeedSession();
             // DbInitializer.SeedUser(modelBuilder);
             // DbInitializer.SeedHall(modelBuilder);
             // DbInitializer.SeedSession(modelBuilder);
