@@ -79,9 +79,10 @@ namespace cinema_be.Controllers
             _ticketService.Delete(id);
             return NoContent();
         }
+
         [Authorize]
-        [HttpGet("my-tickets")]
-        public ActionResult<IEnumerable<Ticket>> GetUserTickets()
+        [HttpGet("my-sessions")]
+        public ActionResult<IEnumerable<object>> GetUserSessions()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userId))
@@ -90,7 +91,19 @@ namespace cinema_be.Controllers
             }
 
             var tickets = _ticketService.GetUserTickets(int.Parse(userId));
-            return Ok(tickets);
+
+            var sessions = tickets
+                .GroupBy(t => t.SessionId)
+                .Select(g => new
+                {
+                    Id = g.Key,
+                    StartTime = g.First().Session.StartTime,
+                    EndTime = g.First().Session.EndTime,
+                    Tickets = g.ToList()
+                })
+                .ToList();
+
+            return Ok(sessions);
         }
 
     }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using cinema_be.Models.DTOs;
 using cinema_be.Models.DTO;
 using Newtonsoft.Json;
+using System.Security.Claims;
 
 namespace cinema_be.Controllers
 {
@@ -49,6 +50,19 @@ namespace cinema_be.Controllers
         }
 
         
+        [Authorize]
+        [HttpGet("get-recommended-films")]
+        public ActionResult<IEnumerable<Movie>> GetMyFilms()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized(new { success = false, message = "User ID not found in token" });
+            }
+            var movies = _movieService.GetMyFilms(int.Parse(userId));
+            return Ok(movies);
+        }
+
         [AllowAnonymous]
         [HttpGet("get-popular")]
         public async Task<ActionResult> GetPopular(int page)
