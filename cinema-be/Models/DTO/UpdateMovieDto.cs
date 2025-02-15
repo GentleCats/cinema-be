@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using cinema_be.Entities;
 
 namespace cinema_be.Models.DTO
 {
@@ -29,7 +30,7 @@ namespace cinema_be.Models.DTO
         public string? Director { get; set; }
 
         [MaxLength(300)]
-        public string? Cast { get; set; }
+        public List<Actor> Cast { get; set; }
 
         [Range(0, 10)]
         public decimal Rating { get; set; }

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace cinema_be.Controllers
 {
     [Route("api/[controller]")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+    // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
 
     public class AdminController : Controller
     {

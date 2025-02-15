@@ -42,13 +42,16 @@ namespace cinema_be.Services
         public Movie? GetMovieById(int id)
         {
             if (id < 0) return null;
-            var movie = movieRepo.Get(filter: b => b.TmdbId == id).FirstOrDefault();
+
+            var movie = movieRepo.Get(filter: m => m.TmdbId == id, includeProperties: "Cast").FirstOrDefault();
+            
             return movie;
         }
 
+
         public List<MovieDto> GetMovies()
         {
-            var movies = movieRepo.Get().ToList();
+            var movies = movieRepo.Get(includeProperties: new string[] { "Cast" }).ToList();
             return _mapper.Map<List<MovieDto>>(movies);
         }
 

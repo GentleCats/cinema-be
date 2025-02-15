@@ -10,7 +10,7 @@ namespace cinema_be.Models.DTOs
         public string Genre { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string Director { get; set; }
-        public string Cast { get; set; }
+        public List<ActorDto> Cast { get; set; } = new();
         public decimal Rating { get; set; }
         public string TrailerUrl { get; set; }
         public string ImageUrl { get; set; }
