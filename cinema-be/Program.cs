@@ -1,17 +1,18 @@
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using cinema_be.Configuration;
 using cinema_be.Entities;
 using cinema_be.Helpers;
 using cinema_be.Interfaces;
 using cinema_be.Services;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System.Text;
 using cinema_be.Validators;
-using FluentValidation.AspNetCore;
 using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
 
 namespace cinema_be
 {
@@ -23,7 +24,7 @@ namespace cinema_be
             builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             builder.Services.Configure<TmdbSettings>(builder.Configuration.GetSection("TmdbSettings"));
-            
+
             builder.Services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultDB"));
@@ -76,7 +77,7 @@ namespace cinema_be
             builder.Services.AddScoped<ITicketService, TicketService>();
             builder.Services.AddScoped<ITokenService, TokenService>();
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -112,6 +113,37 @@ namespace cinema_be
 
             builder.Services.AddAuthorization();
 
+
+
+            builder.Services.AddSwaggerGen(option =>
+            {
+                option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
+                option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Please enter a valid token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "Bearer"
+                });
+                option.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[]{}
+        }
+                });
+            });
+
+
             var app = builder.Build();
 
             using (var scope = app.Services.CreateScope())
@@ -130,7 +162,8 @@ namespace cinema_be
                 }
             }
 
-            // Configure the HTTP request pipeline.
+
+            
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
