@@ -71,6 +71,7 @@ namespace cinema_be.Controllers
         {
             if (!ModelState.IsValid)
             {
+                // Якщо ModelState не валідний, повертаємо помилки валідації
                 var errors = ModelState.Values
                     .SelectMany(v => v.Errors)
                     .Select(e => e.ErrorMessage)
@@ -84,22 +85,12 @@ namespace cinema_be.Controllers
                 Email = request.Email,
             };
 
+            
             var result = await userManager.CreateAsync(user, request.Password);
 
             if (result.Succeeded)
             {
-                // Додаємо користувача до ролі "Member"
-                var roleResult = await userManager.AddToRoleAsync(user, "Member");
-                if (!roleResult.Succeeded)
-                {
-                    return BadRequest(new
-                    {
-                        success = false,
-                        errors = roleResult.Errors.Select(e => e.Description).ToList()
-                    });
-                }
-
-                // Автентифікація після реєстрації
+                // Якщо реєстрація успішна, виконуємо автентифікацію
                 await signInManager.SignInAsync(user, isPersistent: false);
 
                 return Ok(new
@@ -115,10 +106,10 @@ namespace cinema_be.Controllers
                 });
             }
 
+            // Якщо виникли помилки, збираємо їх у список і повертаємо
             var errorsList = result.Errors.Select(e => e.Description).ToList();
             return BadRequest(new { success = false, errors = errorsList });
         }
-
 
 
         [AllowAnonymous]
