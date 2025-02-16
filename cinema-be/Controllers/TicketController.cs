@@ -1,6 +1,7 @@
 ﻿using cinema_be.Entities;
 using cinema_be.Interfaces;
 using cinema_be.Models.DTOs;
+using cinema_be.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -80,7 +81,7 @@ namespace cinema_be.Controllers
             return NoContent();
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpGet("my-sessions")]
         public ActionResult<IEnumerable<object>> GetUserSessions()
         {
@@ -90,21 +91,11 @@ namespace cinema_be.Controllers
                 return Unauthorized(new { success = false, message = "User ID not found in token" });
             }
 
-            var tickets = _ticketService.GetUserTickets(int.Parse(userId));
+            var sessionDetails = _ticketService.GetMySessions(int.Parse(userId));
 
-            var sessions = tickets
-                .GroupBy(t => t.SessionId)
-                .Select(g => new
-                {
-                    Id = g.Key,
-                    StartTime = g.First().Session.StartTime,
-                    EndTime = g.First().Session.EndTime,
-                    Tickets = g.ToList()
-                })
-                .ToList();
-
-            return Ok(sessions);
+            return Ok(sessionDetails);
         }
+
 
     }
 }

@@ -10,6 +10,7 @@ namespace cinema_be.Interfaces
         void Create(CreateTicketDto ticketDto);
         void Delete(int id);
         IEnumerable<Ticket> GetUserTickets(int userId);
+        IEnumerable<object> GetMySessions(int userId);
 
     }
 }

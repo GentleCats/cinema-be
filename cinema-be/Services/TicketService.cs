@@ -11,12 +11,14 @@ namespace cinema_be.Services
     public class TicketService : ITicketService
     {
         private readonly IRepository<Ticket> _ticketRepo;
+        private readonly ISessionService _sessionService;
         private readonly IMapper _mapper;
 
-        public TicketService(IRepository<Ticket> ticketRepo, IMapper mapper)
+        public TicketService(IRepository<Ticket> ticketRepo, IMapper mapper,ISessionService sessionService)
         {
             _ticketRepo = ticketRepo;
             _mapper = mapper;
+            _sessionService = sessionService;
         }
 
         public IEnumerable<Ticket> GetTickets()
@@ -73,6 +75,49 @@ namespace cinema_be.Services
         {
             return _ticketRepo.Get(filter: t => t.UserId == userId).ToList();
         }
+        public IEnumerable<object> GetMySessions(int userId)
+        {
+            var tickets = GetUserTickets(userId);
+            var sessionIds = tickets.Select(t => t.SessionId).Distinct().ToList();
 
+            var sessionsData = new Dictionary<int, Session>();
+
+            foreach (var sessionId in sessionIds)
+            {
+                var session = _sessionService.GetSessionById(sessionId);
+                if (session != null && !sessionsData.ContainsKey(session.Id))
+                {
+                    sessionsData.Add(session.Id, session);
+                }
+            }
+
+            var sessionDetails = tickets
+                .GroupBy(t => t.SessionId)
+                .Select(g => new
+                {
+                    Id = g.Key,
+                    StartTime = sessionsData[g.Key].StartTime,
+                    EndTime = sessionsData[g.Key].EndTime,
+                    Price = sessionsData[g.Key].Price,
+                    Hall = sessionsData.ContainsKey(g.Key) ? new
+                    {
+                        sessionsData[g.Key].Hall.Id,
+                        sessionsData[g.Key].Hall.Name,
+                        sessionsData[g.Key].Hall.Capacity
+                    } : null,  
+                    Tickets = g.Select(t => new
+                    {
+                        t.Id,
+                        t.BookingTime,
+                        t.UserId,
+                        t.SessionId,
+                        t.Seat,
+                        t.Row,
+                        t.Col
+                    }).ToList()
+                })
+                .ToList();
+            return sessionDetails;
+        }
     }
 }

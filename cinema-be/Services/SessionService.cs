@@ -33,7 +33,7 @@ namespace cinema_be.Services
     }
     public Session? GetSessionById(int id)
     {
-      var session = _sesisonRepo.Get(filter: s => s.Id == id).FirstOrDefault();
+      var session = _sesisonRepo.Get(filter: s => s.Id == id, includeProperties: "Hall").FirstOrDefault();
       return session;
     }
     public List<Session> GetSessionByMovieId(int id)
