@@ -12,12 +12,10 @@ namespace cinema_be.Controllers
     public class TicketController : Controller
     {
         private readonly ITicketService _ticketService;
-        private readonly ISessionService _sessionService;
 
-        public TicketController(ITicketService ticketService, ISessionService sessionService)
+        public TicketController(ITicketService ticketService)
         {
             _ticketService = ticketService;
-            _sessionService = sessionService;
         }
 
         [HttpGet("get-all")]
@@ -87,37 +85,13 @@ namespace cinema_be.Controllers
         [HttpGet("my-sessions")]
         public ActionResult<IEnumerable<object>> GetUserSessions()
         {
-            var userId = "3";
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userId))
             {
                 return Unauthorized(new { success = false, message = "User ID not found in token" });
             }
 
-            var tickets = _ticketService.GetUserTickets(int.Parse(userId));
-            var sessionIds = tickets.Select(t => t.SessionId).Distinct().ToList();
-
-            var sessionsData = new Dictionary<int, Session>();
-
-            foreach (var sessionId in sessionIds)
-            {
-                var session = _sessionService.GetSessionById(sessionId);
-                Console.WriteLine(session.StartTime);
-                if (session != null && !sessionsData.ContainsKey(session.Id))
-                {
-                    sessionsData.Add(session.Id, session);
-                }
-            }
-
-            var sessionDetails = tickets
-                .GroupBy(t => t.SessionId)
-                .Select(g => new
-                {
-                    Id = g.Key,
-                    StartTime = sessionsData.ContainsKey(g.Key) ? sessionsData[g.Key].StartTime : (TimeSpan?)null,
-                    EndTime = sessionsData.ContainsKey(g.Key) ? sessionsData[g.Key].EndTime : (TimeSpan?)null,
-                    Tickets = g.ToList()
-                })
-                .ToList();
+            var sessionDetails = _ticketService.GetMySessions(int.Parse(userId));
 
             return Ok(sessionDetails);
         }
