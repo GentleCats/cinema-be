@@ -11,7 +11,7 @@ namespace cinema_be.Entities
         public int Capacity { get; set; }
         public int Rows { get; set; }
         public int Cols { get; set; }
-        public ICollection<Session> Sessions { get; set; }
+        // public ICollection<Session> Sessions { get; set; }
         public ICollection<Ticket> Tickets { get; set; }
     }
 }
