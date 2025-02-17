@@ -9,6 +9,10 @@ using cinema_be.Models.DTO;
 using Newtonsoft.Json;
 using System.Security.Claims;
 
+
+
+    // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+
 namespace cinema_be.Controllers
 {
     [Route("api/[controller]")]
@@ -42,14 +46,21 @@ namespace cinema_be.Controllers
 
 
         [AllowAnonymous]
+        [HttpGet("get-by-movie-id/{id}")]
+        public ActionResult GetMovie(int id)
+        {
+            var movies = _movieService.GetMovie(id);
+            return Ok(movies);
+        }
+
+        [AllowAnonymous]
         [HttpGet("get-by-id/{tmdbId}")]
-        public ActionResult GetById(int tmdbId)
+        public ActionResult GetMovieById(int tmdbId)
         {
             var movies = _movieService.GetMovieById(tmdbId);
             return Ok(movies);
         }
 
-        
         [Authorize]
         [HttpGet("get-recommended-films")]
         public ActionResult<IEnumerable<Movie>> GetMyFilms()
@@ -78,6 +89,7 @@ namespace cinema_be.Controllers
             var movie = await _tmdbService.GetMovieDetailsAsync(movieId);
             return Ok(movie);
         }
+        
         [HttpPut("update/{id}")]
         public IActionResult UpdateMovie(int id, [FromBody] UpdateMovieDto movieDto)
         {
@@ -105,6 +117,29 @@ namespace cinema_be.Controllers
             return Ok(genres);
         }
 
+        [HttpPost("create-movie")]
+        public ActionResult Create([FromBody] CreateMovieDto movie)
+        {
+            if (!ModelState.IsValid)
+            {
+
+                var errors = ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .ToList();
+                return BadRequest(new { success = false, errors });
+            }
+
+            _movieService.Create(movie);
+            return NoContent();
+        }
+
+        [HttpDelete("delete-movie-by-id/{id}")]
+        public ActionResult DeleteById(int id)
+        {
+            _movieService.Delete(id);
+            return NoContent();
+        }
 
 
     }
