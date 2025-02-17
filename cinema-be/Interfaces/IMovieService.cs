@@ -10,6 +10,7 @@ namespace cinema_be.Interfaces
         public List<MovieDto> GetMovies();
 
         Movie? GetMovieById(int id);
+        Movie? GetMovie(int id);
         void Create(CreateMovieDto movie);
         void Update(Movie movie);
         void Delete(int id);

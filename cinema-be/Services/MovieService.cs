@@ -110,6 +110,14 @@ namespace cinema_be.Services
             return movie;
         }
 
+        public Movie? GetMovie(int id)
+        {
+            if (id < 0) return null;
+
+            var movie = _movieRepo.Get(filter: m => m.Id == id).FirstOrDefault();
+            
+            return movie;
+        }
 
         public List<MovieDto> GetMovies()
         {
