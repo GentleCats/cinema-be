@@ -99,12 +99,8 @@ namespace cinema_be.Services
                     StartTime = sessionsData[g.Key].StartTime,
                     EndTime = sessionsData[g.Key].EndTime,
                     Price = sessionsData[g.Key].Price,
-                    Movie = sessionsData.ContainsKey(g.Key) ? new
-                    {
-                        sessionsData[g.Key].Movie.Title,
-                        sessionsData[g.Key].Movie.Id,
-                        sessionsData[g.Key].Movie.ImageUrl,
-                    } : null,
+                    MovieId = sessionsData[g.Key].MovieId,
+
                     Hall = sessionsData.ContainsKey(g.Key) ? new
                     {
                         sessionsData[g.Key].Hall.Id,
